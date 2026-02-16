@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Gradient Background -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="135"
+                android:startColor="@color/phinma_dark_green"
+                android:centerColor="@color/phinma_green"
+                android:endColor="@color/phinma_light_green"
+                android:type="linear"/>
+        </shape>
+    </item>
+</layer-list>

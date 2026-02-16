@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PHINMA Lost and Found</string>
+    
+    <!-- Login/Signup -->
+    <string name="login">Log In</string>
+    <string name="signup">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="dont_have_account">Don\'t have an account? Sign Up</string>
+    <string name="already_have_account">Already have an account? Log In</string>
+    <string name="login_with_google">Log In with Google</string>
+    <string name="login_with_apple">Log In with Apple</string>
+    <string name="signup_with_google">Sign Up with Google</string>
+    <string name="signup_with_apple">Sign Up with Apple</string>
+    
+    <!-- Profile -->
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="username">Username</string>
+    <string name="email_address">Email Address</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="posts">Posts</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    
+    <!-- Navigation -->
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="post">Post</string>
+    <string name="chat">Chat</string>
+    <string name="menu">Menu</string>
+    
+    <!-- Home -->
+    <string name="lost_and_found_items">Lost and Found Items</string>
+    <string name="notifications">Notifications</string>
+    
+    <!-- Search -->
+    <string name="search_here">Search Here</string>
+    <string name="recent_searches">Recent Searches</string>
+    
+    <!-- Post -->
+    <string name="post_item">Post Item</string>
+    <string name="select_image">Select Image</string>
+    <string name="add_description">Add Description</string>
+    <string name="description_hint">Write a description about the lost or found item...</string>
+    
+    <!-- Chat -->
+    <string name="chats">Chats</string>
+    <string name="type_message">Type a message...</string>
+    <string name="send">Send</string>
+    
+    <!-- Menu -->
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="report_problem">Report a Problem</string>
+    <string name="faqs">FAQs</string>
+    
+    <!-- Settings -->
+    <string name="general">General</string>
+    <string name="notifications_setting">Notifications</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="location_services">Location Services</string>
+    <string name="privacy">Privacy</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms_of_service">Terms of Service</string>
+    
+    <!-- Common -->
+    <string name="back">Back</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="version">v1.0.0</string>
+</resources>

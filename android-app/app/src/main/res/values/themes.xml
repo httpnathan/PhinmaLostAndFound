@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- PHINMA Lost and Found Theme -->
+    <style name="Theme.PhinmaLostAndFound" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color (Dark Green) -->
+        <item name="colorPrimary">@color/phinma_dark_green</item>
+        <item name="colorPrimaryVariant">@color/phinma_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <!-- Secondary brand color (Yellow) -->
+        <item name="colorSecondary">@color/phinma_yellow</item>
+        <item name="colorSecondaryVariant">@color/phinma_gold</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/phinma_dark_green</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

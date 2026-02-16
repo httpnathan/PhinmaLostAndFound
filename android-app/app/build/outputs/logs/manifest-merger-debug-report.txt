@@ -1,0 +1,421 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:2:1-98:12
+INJECTED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:2:1-98:12
+INJECTED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:2:1-98:12
+INJECTED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:2:1-98:12
+MERGED from [com.google.android.material:material:1.11.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/54d5ae0b379a751dcdcf2b3df2b406c3/transformed/material-1.11.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7cdb198f3bbe2cfd8ce8e30c829e0e84/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/100b7bbbcef832003b847d88be1c7553/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.6.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/5d64804f8051a0b2addf541cd0664b64/transformed/appcompat-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7f58c34306a3bfcfcb86a37dce75a85a/transformed/coordinatorlayout-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/d061300a0881ce37e29ac7b20e0dbe80/transformed/jetified-viewpager2-1.1.0-beta02/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/041fa0077ef7395bfee10718796d52ea/transformed/recyclerview-1.3.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/3f7dd937429c09b7060f68936ca2064d/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1f8e5a183a3e2df1df96caa05a2e41d1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.fragment:fragment:1.3.6] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/3faf3344d0f2c6b40c8e935a0f4a1752/transformed/fragment-1.3.6/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.8.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/d0afd674e802cbe77378ad7460eb0f67/transformed/jetified-activity-1.8.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/8f14aeb4e4aebe23374ab5d7e91360d0/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/14337d77528ca21204bdc07cd936479b/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1a94ab0117b65670f3c808c0060a0ed2/transformed/transition-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/fe31da9bebb6befaae1619989f416543/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/ef1429707a65501346a831d099597133/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/86a1f8d529b26dd992badf2f9657c076/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/a491a16c68c708e50c631ccfe9069e02/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/bd710ed29c7d25ac060ac4099efe9833/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.1.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/bdb2eae94161149e9df5ecd73968d2de/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/b5629f7bbbaf1eed3fc761a26570410c/transformed/jetified-customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/41a5e6827ce998fdfd2b09f53a5a52fc/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/e0aeeb861f0749195c93b75f182c8b64/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/24299053ebe1f09060e934716b0394a7/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/9a071d90114a1117f624f8be6ebfeb8b/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/be13794f31d64a82d436e3fda9566c3f/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1ac9e3b15bd4c3777b1fd81c9a385d1e/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/89135514c126943fb20aded1e5d1ec90/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/acb654798042a7f4acf2e82eec6babfa/transformed/jetified-lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/894fb71caf83b05206f491221415567e/transformed/jetified-lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/a290e72490f3f77fda748d96b6b7ff23/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/c6b6dbc8c698ec9da1f82874235780de/transformed/jetified-core-ktx-1.12.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/3dbfee5916922fadd62d062e83728464/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7335ffa44067a9562385dc4992051b1a/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/c58c8491b1ca57d3e6ea2e8bf9b6567e/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/cbde5c6016fb5b2cecfb8f4a8b862381/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7adb3cf7515dee087afbebc4488930db/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/b4aafa527ddf619ad2202ce3de2c2531/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/24aa52ae71fe60ce85a3155c44ef495d/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/3d7f3cce9387beee5e69e82a7281f369/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/6e37b5705a9ae968e87b7d1649f09aab/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/6ca0ac15ed52759e5fc60049fe81697f/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/786a29c4de8deff971c93ffc3dc2a8d3/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [de.hdodenhof:circleimageview:3.1.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/a9724de28399d6eae8df510c1912ae0a/transformed/jetified-circleimageview-3.1.0/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.volley:volley:1.2.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/41cb4a834aefb3a3f0a43109cf9ac56b/transformed/jetified-volley-1.2.1/AndroidManifest.xml:2:1-7:12
+	package
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:4:5-45
+		INJECTED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:7:5-67
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:7:22-64
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:8:5-9:38
+	android:maxSdkVersion
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:9:9-35
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:8:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:10:5-11:38
+	android:maxSdkVersion
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:11:9-35
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:10:22-78
+uses-permission#android.permission.READ_MEDIA_IMAGES
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:12:5-76
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:12:22-73
+uses-permission#android.permission.CAMERA
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:13:5-65
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:13:22-62
+application
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:15:5-96:19
+INJECTED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:15:5-96:19
+MERGED from [com.google.android.material:material:1.11.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/54d5ae0b379a751dcdcf2b3df2b406c3/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.11.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/54d5ae0b379a751dcdcf2b3df2b406c3/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7cdb198f3bbe2cfd8ce8e30c829e0e84/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7cdb198f3bbe2cfd8ce8e30c829e0e84/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1f8e5a183a3e2df1df96caa05a2e41d1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1f8e5a183a3e2df1df96caa05a2e41d1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/be13794f31d64a82d436e3fda9566c3f/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/be13794f31d64a82d436e3fda9566c3f/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7adb3cf7515dee087afbebc4488930db/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7adb3cf7515dee087afbebc4488930db/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/b4aafa527ddf619ad2202ce3de2c2531/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/b4aafa527ddf619ad2202ce3de2c2531/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [de.hdodenhof:circleimageview:3.1.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/a9724de28399d6eae8df510c1912ae0a/transformed/jetified-circleimageview-3.1.0/AndroidManifest.xml:9:5-20
+MERGED from [de.hdodenhof:circleimageview:3.1.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/a9724de28399d6eae8df510c1912ae0a/transformed/jetified-circleimageview-3.1.0/AndroidManifest.xml:9:5-20
+	android:extractNativeLibs
+		INJECTED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:21:9-35
+	android:label
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:19:9-41
+	android:roundIcon
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:20:9-50
+	tools:targetApi
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:23:9-29
+	android:icon
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:18:9-45
+	android:allowBackup
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:17:9-35
+	android:theme
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:22:9-56
+	android:usesCleartextTraffic
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:16:9-44
+activity#com.example.phinmalostandfound.MainActivity
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:26:9-33:20
+	android:exported
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:28:13-36
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:27:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:29:13-32:29
+action#android.intent.action.MAIN
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:30:17-69
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:30:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:31:17-77
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:31:27-74
+activity#com.example.phinmalostandfound.LoginActivity
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:38:13-37
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:37:13-42
+activity#com.example.phinmalostandfound.SignUpActivity
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:40:9-42:40
+	android:exported
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:42:13-37
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:41:13-43
+activity#com.example.phinmalostandfound.HomeActivity
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:45:9-47:40
+	android:exported
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:47:13-37
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:46:13-41
+activity#com.example.phinmalostandfound.ProfileActivity
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:49:9-51:40
+	android:exported
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:51:13-37
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:50:13-44
+activity#com.example.phinmalostandfound.SearchActivity
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:53:9-55:40
+	android:exported
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:55:13-37
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:54:13-43
+activity#com.example.phinmalostandfound.PostItemActivity
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:57:9-59:40
+	android:exported
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:59:13-37
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:58:13-45
+activity#com.example.phinmalostandfound.ChatSectionActivity
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:61:9-63:40
+	android:exported
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:63:13-37
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:62:13-48
+activity#com.example.phinmalostandfound.PrivateMessageActivity
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:65:9-67:40
+	android:exported
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:67:13-37
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:66:13-51
+activity#com.example.phinmalostandfound.MenuActivity
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:70:9-72:40
+	android:exported
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:72:13-37
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:71:13-41
+activity#com.example.phinmalostandfound.SettingsActivity
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:74:9-76:40
+	android:exported
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:76:13-37
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:75:13-45
+activity#com.example.phinmalostandfound.FAQsActivity
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:79:9-81:40
+	android:exported
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:81:13-37
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:80:13-41
+activity#com.example.phinmalostandfound.AboutActivity
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:83:9-85:40
+	android:exported
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:85:13-37
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:84:13-42
+activity#com.example.phinmalostandfound.ReportActivity
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:87:9-89:40
+	android:exported
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:89:13-37
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:88:13-43
+activity#com.example.phinmalostandfound.PostDetailActivity
+ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:92:9-94:40
+	android:exported
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:94:13-37
+	android:name
+		ADDED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml:93:13-47
+uses-sdk
+INJECTED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml
+INJECTED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml
+MERGED from [com.google.android.material:material:1.11.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/54d5ae0b379a751dcdcf2b3df2b406c3/transformed/material-1.11.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.11.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/54d5ae0b379a751dcdcf2b3df2b406c3/transformed/material-1.11.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7cdb198f3bbe2cfd8ce8e30c829e0e84/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7cdb198f3bbe2cfd8ce8e30c829e0e84/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/100b7bbbcef832003b847d88be1c7553/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/100b7bbbcef832003b847d88be1c7553/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/5d64804f8051a0b2addf541cd0664b64/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/5d64804f8051a0b2addf541cd0664b64/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7f58c34306a3bfcfcb86a37dce75a85a/transformed/coordinatorlayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7f58c34306a3bfcfcb86a37dce75a85a/transformed/coordinatorlayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/d061300a0881ce37e29ac7b20e0dbe80/transformed/jetified-viewpager2-1.1.0-beta02/AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/d061300a0881ce37e29ac7b20e0dbe80/transformed/jetified-viewpager2-1.1.0-beta02/AndroidManifest.xml:5:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/041fa0077ef7395bfee10718796d52ea/transformed/recyclerview-1.3.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/041fa0077ef7395bfee10718796d52ea/transformed/recyclerview-1.3.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/3f7dd937429c09b7060f68936ca2064d/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/3f7dd937429c09b7060f68936ca2064d/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1f8e5a183a3e2df1df96caa05a2e41d1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1f8e5a183a3e2df1df96caa05a2e41d1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.fragment:fragment:1.3.6] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/3faf3344d0f2c6b40c8e935a0f4a1752/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.6] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/3faf3344d0f2c6b40c8e935a0f4a1752/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.8.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/d0afd674e802cbe77378ad7460eb0f67/transformed/jetified-activity-1.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/d0afd674e802cbe77378ad7460eb0f67/transformed/jetified-activity-1.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/8f14aeb4e4aebe23374ab5d7e91360d0/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/8f14aeb4e4aebe23374ab5d7e91360d0/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/14337d77528ca21204bdc07cd936479b/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/14337d77528ca21204bdc07cd936479b/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1a94ab0117b65670f3c808c0060a0ed2/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1a94ab0117b65670f3c808c0060a0ed2/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/fe31da9bebb6befaae1619989f416543/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/fe31da9bebb6befaae1619989f416543/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/ef1429707a65501346a831d099597133/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/ef1429707a65501346a831d099597133/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/86a1f8d529b26dd992badf2f9657c076/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/86a1f8d529b26dd992badf2f9657c076/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/a491a16c68c708e50c631ccfe9069e02/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/a491a16c68c708e50c631ccfe9069e02/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/bd710ed29c7d25ac060ac4099efe9833/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/bd710ed29c7d25ac060ac4099efe9833/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.1.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/bdb2eae94161149e9df5ecd73968d2de/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/bdb2eae94161149e9df5ecd73968d2de/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/b5629f7bbbaf1eed3fc761a26570410c/transformed/jetified-customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/b5629f7bbbaf1eed3fc761a26570410c/transformed/jetified-customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/41a5e6827ce998fdfd2b09f53a5a52fc/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/41a5e6827ce998fdfd2b09f53a5a52fc/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/e0aeeb861f0749195c93b75f182c8b64/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/e0aeeb861f0749195c93b75f182c8b64/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/24299053ebe1f09060e934716b0394a7/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/24299053ebe1f09060e934716b0394a7/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/9a071d90114a1117f624f8be6ebfeb8b/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/9a071d90114a1117f624f8be6ebfeb8b/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/be13794f31d64a82d436e3fda9566c3f/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/be13794f31d64a82d436e3fda9566c3f/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1ac9e3b15bd4c3777b1fd81c9a385d1e/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1ac9e3b15bd4c3777b1fd81c9a385d1e/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/89135514c126943fb20aded1e5d1ec90/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/89135514c126943fb20aded1e5d1ec90/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/acb654798042a7f4acf2e82eec6babfa/transformed/jetified-lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/acb654798042a7f4acf2e82eec6babfa/transformed/jetified-lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/894fb71caf83b05206f491221415567e/transformed/jetified-lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/894fb71caf83b05206f491221415567e/transformed/jetified-lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/a290e72490f3f77fda748d96b6b7ff23/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/a290e72490f3f77fda748d96b6b7ff23/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/c6b6dbc8c698ec9da1f82874235780de/transformed/jetified-core-ktx-1.12.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/c6b6dbc8c698ec9da1f82874235780de/transformed/jetified-core-ktx-1.12.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/3dbfee5916922fadd62d062e83728464/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/3dbfee5916922fadd62d062e83728464/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7335ffa44067a9562385dc4992051b1a/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7335ffa44067a9562385dc4992051b1a/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/c58c8491b1ca57d3e6ea2e8bf9b6567e/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/c58c8491b1ca57d3e6ea2e8bf9b6567e/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/cbde5c6016fb5b2cecfb8f4a8b862381/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/cbde5c6016fb5b2cecfb8f4a8b862381/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7adb3cf7515dee087afbebc4488930db/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/7adb3cf7515dee087afbebc4488930db/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/b4aafa527ddf619ad2202ce3de2c2531/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/b4aafa527ddf619ad2202ce3de2c2531/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/24aa52ae71fe60ce85a3155c44ef495d/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/24aa52ae71fe60ce85a3155c44ef495d/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/3d7f3cce9387beee5e69e82a7281f369/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/3d7f3cce9387beee5e69e82a7281f369/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/6e37b5705a9ae968e87b7d1649f09aab/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/6e37b5705a9ae968e87b7d1649f09aab/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/6ca0ac15ed52759e5fc60049fe81697f/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/6ca0ac15ed52759e5fc60049fe81697f/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/786a29c4de8deff971c93ffc3dc2a8d3/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/786a29c4de8deff971c93ffc3dc2a8d3/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [de.hdodenhof:circleimageview:3.1.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/a9724de28399d6eae8df510c1912ae0a/transformed/jetified-circleimageview-3.1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [de.hdodenhof:circleimageview:3.1.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/a9724de28399d6eae8df510c1912ae0a/transformed/jetified-circleimageview-3.1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.volley:volley:1.2.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/41cb4a834aefb3a3f0a43109cf9ac56b/transformed/jetified-volley-1.2.1/AndroidManifest.xml:5:5-43
+MERGED from [com.android.volley:volley:1.2.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/41cb4a834aefb3a3f0a43109cf9ac56b/transformed/jetified-volley-1.2.1/AndroidManifest.xml:5:5-43
+	android:targetSdkVersion
+		INJECTED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/Enoki/Documents/PHINMA-LostAndFound-FINAL-WITH-SEARCH-FILTER-MESSAGE/phinma-complete-mariadb/android-app/app/src/main/AndroidManifest.xml
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1f8e5a183a3e2df1df96caa05a2e41d1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/be13794f31d64a82d436e3fda9566c3f/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/be13794f31d64a82d436e3fda9566c3f/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/b4aafa527ddf619ad2202ce3de2c2531/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/b4aafa527ddf619ad2202ce3de2c2531/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1f8e5a183a3e2df1df96caa05a2e41d1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1f8e5a183a3e2df1df96caa05a2e41d1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1f8e5a183a3e2df1df96caa05a2e41d1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1f8e5a183a3e2df1df96caa05a2e41d1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1f8e5a183a3e2df1df96caa05a2e41d1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1f8e5a183a3e2df1df96caa05a2e41d1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/1f8e5a183a3e2df1df96caa05a2e41d1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+permission#com.example.phinmalostandfound.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+uses-permission#com.example.phinmalostandfound.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/96a788d4b25d8546e5bf24497a2f7085/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/be13794f31d64a82d436e3fda9566c3f/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/be13794f31d64a82d436e3fda9566c3f/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/be13794f31d64a82d436e3fda9566c3f/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/Enoki/.gradle/caches/9.0-milestone-1/transforms/66e629ec963cf0ee525b66cff38c5c1c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
