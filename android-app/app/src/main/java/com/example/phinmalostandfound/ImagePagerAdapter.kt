@@ -5,23 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 
-/**
- * ============================================================================
- * IMAGE PAGER ADAPTER
- * ============================================================================
- * Displays a list of image URLs in a ViewPager2
- * Glide (or any loader) is passed via lambda
- * ============================================================================
- */
-class ImagePagerAdapter(
-    private val imageUrls: List<String>,
-    private val imageLoader: (String, ImageView) -> Unit
-) : RecyclerView.Adapter<ImagePagerAdapter.ImageViewHolder>() {
+class ImagePagerAdapter(private val imageUrls: List<String>) :
+    RecyclerView.Adapter<ImagePagerAdapter.ImageViewHolder>() {
 
-    inner class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.imageViewItem)
+    class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val imageView: ImageView = itemView.findViewById(R.id.imageView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
@@ -32,7 +22,12 @@ class ImagePagerAdapter(
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         val url = imageUrls[position]
-        imageLoader(url, holder.imageView)
+        
+        Glide.with(holder.itemView.context)
+            .load(url)
+            .placeholder(R.drawable.ic_image_placeholder)
+            .error(R.drawable.ic_image_placeholder)
+            .into(holder.imageView)
     }
 
     override fun getItemCount() = imageUrls.size

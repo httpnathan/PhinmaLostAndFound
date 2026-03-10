@@ -1,5 +1,6 @@
 package com.example.phinmalostandfound
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -110,7 +111,7 @@ class SignUpActivity : AppCompatActivity() {
             return
         }
 
-        val url = "http://192.168.1.30/phinma-api/backend/auth.php?action=register"
+        val url = ApiConfig.REGISTER
 
         val jsonObject = JSONObject().apply {
             put("first_name", firstName)
@@ -126,25 +127,31 @@ class SignUpActivity : AppCompatActivity() {
             { response ->
                 val success = response.getBoolean("success")
                 val message = response.getString("message")
-                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
                 if (success) {
-                    val sharedPreferences = getSharedPreferences("PhinmaLostAndFound", MODE_PRIVATE)
+                    val data = response.getJSONObject("data")
+                    val userId = data.getInt("user_id")
+
+                    val sharedPreferences = getSharedPreferences("PhinmaLostAndFound", Context.MODE_PRIVATE)
                     sharedPreferences.edit().apply {
                         putBoolean("isLoggedIn", true)
+                        putInt("userId", userId)
                         putString("userEmail", email)
                         putString("userFirstName", firstName)
                         putString("userLastName", lastName)
                         apply()
                     }
 
+                    Toast.makeText(this, "Registration Successful!", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, HomeActivity::class.java)
                     startActivity(intent)
                     finish()
+                } else {
+                    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
                 }
             },
             { error ->
-                val data = error.networkResponse?.data?.let { String(it) } ?: "No response from server"
+                val data = error.networkResponse?.data?.let { String(it) } ?: "No response"
                 Toast.makeText(this, "Signup failed: $data", Toast.LENGTH_LONG).show()
             }
         )

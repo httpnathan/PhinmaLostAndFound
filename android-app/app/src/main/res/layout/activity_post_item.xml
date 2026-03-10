@@ -36,6 +36,43 @@
             android:orientation="vertical"
             android:padding="24dp">
 
+            <!-- Hidden fields to store user information -->
+            <EditText
+                android:id="@+id/userIdHiddenField"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                android:importantForAutofill="no"
+                android:inputType="none" />
+
+            <EditText
+                android:id="@+id/firstNameHiddenField"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                android:importantForAutofill="no"
+                android:inputType="none" />
+
+            <EditText
+                android:id="@+id/lastNameHiddenField"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                android:importantForAutofill="no"
+                android:inputType="none" />
+
+            <!-- Display automatically grabbed user info -->
+            <TextView
+                android:id="@+id/postingAsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Posting as: "
+                android:textColor="@color/phinma_green"
+                android:textStyle="bold"
+                android:padding="8dp"
+                android:background="#102E7D32"
+                android:layout_marginBottom="16dp"/>
+
             <ImageView
                 android:id="@+id/postImageView"
                 android:layout_width="match_parent"
@@ -57,6 +94,57 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 style="?attr/materialButtonOutlinedStyle"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Post Type"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="24dp"/>
+
+            <Spinner
+                android:id="@+id/postTypeSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="12dp"
+                android:background="@drawable/edittext_background"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="16dp"/>
+
+            <Spinner
+                android:id="@+id/categorySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="12dp"
+                android:background="@drawable/edittext_background"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="16dp"/>
+
+            <Spinner
+                android:id="@+id/locationSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="12dp"
+                android:background="@drawable/edittext_background"/>
 
             <TextView
                 android:layout_width="wrap_content"

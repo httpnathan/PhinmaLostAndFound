@@ -79,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun performLogin(email: String, password: String) {
-        val url = "http://192.168.1.30/phinma-api/backend/auth.php?action=login" // Use PC IP if testing on a real device
+        val url = ApiConfig.LOGIN
 
         val jsonBody = JSONObject()
         jsonBody.put("action", "login")
@@ -93,11 +93,19 @@ class LoginActivity : AppCompatActivity() {
                 val message = response.getString("message")
 
                 if (success) {
+                    val data = response.getJSONObject("data")
+                    val userId = data.getInt("user_id")
+                    val firstName = data.getString("first_name")
+                    val lastName = data.getString("last_name")
+
                     // Save login state
                     val sharedPreferences = getSharedPreferences("PhinmaLostAndFound", MODE_PRIVATE)
                     sharedPreferences.edit().apply {
                         putBoolean("isLoggedIn", true)
+                        putInt("userId", userId)
                         putString("userEmail", email)
+                        putString("userFirstName", firstName)
+                        putString("userLastName", lastName)
                         apply()
                     }
 

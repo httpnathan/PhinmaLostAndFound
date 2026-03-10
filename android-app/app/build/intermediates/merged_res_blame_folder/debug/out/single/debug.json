@@ -1,214 +1,210 @@
 [
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_home.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_home.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_menu.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_menu.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_activity_main.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/activity_main.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_activity_post_item.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/activity_post_item.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_edittext_background.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/edittext_background.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/xml_backup_rules.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/xml/backup_rules.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_image_counter_background.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/image_counter_background.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_activity_menu.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/activity_menu.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_activity_home.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/activity_home.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_notifications.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_notifications.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_app_logo.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_app_logo.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_activity_post_detail.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/activity_post_detail.xml"
     },
     {
-        "merged": "com.example.phinmalostandfound.app-merged_res-36:/color_button_state_color.xml.flat",
-        "source": "com.example.phinmalostandfound.app-main-38:/color/button_state_color.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_filter.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_filter.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_activity_search.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/activity_search.xml"
+        "merged": "com.example.phinmalostandfound.app-merged_res-37:/layout_activity_post_item.xml.flat",
+        "source": "com.example.phinmalostandfound.app-main-39:/layout/activity_post_item.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_back.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_back.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_activity_faqs.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/activity_faqs.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_settings.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_settings.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_activity_signup.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/activity_signup.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/menu_bottom_navigation_menu.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/menu/bottom_navigation_menu.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_report.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_report.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_help.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_help.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_item_post.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/item_post.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_item_post.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/item_post.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_search.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_search.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_info.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_info.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_search_background.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/search_background.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/color_bottom_nav_colors.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/color/bottom_nav_colors.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_activity_settings.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/activity_settings.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_image_placeholder_background.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/image_placeholder_background.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_activity_chat_section.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/activity_chat_section.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_chat.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_chat.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_settings.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_settings.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_activity_faqs.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/activity_faqs.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_activity_main.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/activity_main.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_splash_background.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/splash_background.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_activity_profile.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/activity_profile.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_activity_settings.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/activity_settings.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_back.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_back.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/xml_backup_rules.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/xml/backup_rules.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_profile_placeholder.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_profile_placeholder.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_item_image_slider.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/item_image_slider.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_contact.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_contact.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_add.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_add.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_activity_private_message.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/activity_private_message.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_report.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_report.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_send.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_send.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_activity_chat_section.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/activity_chat_section.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/color_bottom_nav_colors.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/color/bottom_nav_colors.xml"
     },
     {
-        "merged": "com.example.phinmalostandfound.app-merged_res-36:/layout_activity_signup.xml.flat",
-        "source": "com.example.phinmalostandfound.app-main-38:/layout/activity_signup.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_activity_login.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/activity_login.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_contact.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_contact.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_add.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_add.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_activity_post_detail.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/activity_post_detail.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_image_counter_background.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/image_counter_background.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_google.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_google.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_profile.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_profile.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_send.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_send.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_app_logo.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_app_logo.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_activity_private_message.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/activity_private_message.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_info.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_info.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_search.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_search.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/menu_bottom_navigation_menu.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/menu/bottom_navigation_menu.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_activity_profile.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/activity_profile.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_activity_about.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/activity_about.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_location.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_location.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_apple.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_apple.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/xml_data_extraction_rules.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/xml/data_extraction_rules.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_home.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_home.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_activity_about.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/activity_about.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_time.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_time.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_post_type_badge_background.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/post_type_badge_background.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_item_image_slider.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/item_image_slider.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_search_background.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/search_background.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_post_type_badge_background.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/post_type_badge_background.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_arrow_right.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_arrow_right.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/color_button_state_color.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/color/button_state_color.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_apple.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_apple.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_edittext_background.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/edittext_background.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_notifications.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_notifications.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_splash_background.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/splash_background.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_activity_menu.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/activity_menu.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_activity_report.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/activity_report.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_activity_login.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/activity_login.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_google.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_google.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_activity_signup.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/activity_signup.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_help.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_help.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_filter.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_filter.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_location.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_location.xml"
     },
     {
-        "merged": "com.example.phinmalostandfound.app-merged_res-36:/layout_activity_login.xml.flat",
-        "source": "com.example.phinmalostandfound.app-main-38:/layout/activity_login.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_image_placeholder_background.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/image_placeholder_background.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_time.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_time.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_activity_home.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/activity_home.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_activity_report.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/activity_report.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_arrow_right.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_arrow_right.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_profile.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_profile.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/xml_data_extraction_rules.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_profile_placeholder.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_profile_placeholder.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_image_placeholder.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_image_placeholder.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/layout_activity_post_item.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/layout/activity_post_item.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/drawable_ic_chat.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/drawable/ic_chat.xml"
     },
     {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_menu.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_menu.xml"
-    },
-    {
-        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-36:/drawable_ic_image_placeholder.xml.flat",
-        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-38:/drawable/ic_image_placeholder.xml"
+        "merged": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-merged_res-37:/layout_activity_search.xml.flat",
+        "source": "/home/Enoki/.gradle/daemon/9.0-milestone-1/com.example.phinmalostandfound.app-main-39:/layout/activity_search.xml"
     }
 ]

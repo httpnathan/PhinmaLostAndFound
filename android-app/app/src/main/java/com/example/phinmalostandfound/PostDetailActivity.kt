@@ -1,16 +1,15 @@
-package com.example.phinmalostfound
+package com.example.phinmalostandfound
 
-import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.google.android.material.appbar.MaterialToolbar
-import com.bumptech.glide.Glide
 
 class PostDetailActivity : AppCompatActivity() {
 
@@ -25,9 +24,6 @@ class PostDetailActivity : AppCompatActivity() {
     private lateinit var lastSeenLocation: TextView
     private lateinit var lastSeenTime: TextView
     private lateinit var contactPerson: TextView
-    private lateinit var contactButton: Button
-
-    private var post: Post? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,85 +40,88 @@ class PostDetailActivity : AppCompatActivity() {
         lastSeenLocation = findViewById(R.id.lastSeenLocation)
         lastSeenTime = findViewById(R.id.lastSeenTime)
         contactPerson = findViewById(R.id.contactPerson)
-        contactButton = findViewById(R.id.contactButton)
 
-        // Get post ID from intent
-        val postId = intent.getIntExtra("POST_ID", -1)
-
-        // TODO: Replace PresetPosts with actual database fetch when ready
-        post = PresetPosts.getPresetPosts().find { it.postId == postId }
-
-        if (post == null) {
-            Toast.makeText(this, "Post not found", Toast.LENGTH_SHORT).show()
-            finish()
-            return
-        }
-
-        displayPostDetails()
-        setupClickListeners()
-    }
-
-    private fun displayPostDetails() {
-        post?.let { post ->
-
-            // Toolbar
-            toolbar.title = post.itemName
-            setSupportActionBar(toolbar)
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-            // Images via ViewPager2 using Glide
-            val imageAdapter = ImagePagerAdapter(post.imageUrls) { url, imageView ->
-                Glide.with(this).load(url)
-                    .centerCrop()
-                    .placeholder(R.drawable.ic_image_placeholder)
-                    .into(imageView)
-            }
-            imageViewPager.adapter = imageAdapter
-
-            // Image counter
-            imageViewPager.registerOnPageChangeCallback(object :
-                ViewPager2.OnPageChangeCallback() {
-                override fun onPageSelected(pos: Int) {
-                    imageCounter.text = "${pos + 1}/${post.imageUrls.size}"
-                }
-            })
-            imageCounter.text = "1/${post.imageUrls.size}"
-
-            // Post type badge
-            postTypeBadge.text = post.postType.uppercase()
-            postTypeBadge.setBackgroundColor(
-                if (post.postType.lowercase() == "lost") Color.parseColor("#D32F2F")
-                else Color.parseColor("#1B5E20")
-            )
-
-            // Text fields
-            postTitle.text = post.itemName
-            postDescription.text = post.description
-            categoryText.text = "Category: ${post.category}"
-            postedByText.text = "Posted by: ${post.postedBy}"
-            lastSeenLocation.text =
-                "${post.locationFound}, ${post.building}, Floor ${post.floorNumber ?: "-"}"
-            lastSeenTime.text = post.dateLostFound
-            contactPerson.text = post.contactNumber ?: "Not Provided"
-        }
-    }
-
-    private fun setupClickListeners() {
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toolbar.setNavigationOnClickListener { finish() }
 
-        contactButton.setOnClickListener {
-            post?.let { post ->
-                val contact = post.contactNumber
-                if (!contact.isNullOrEmpty()) {
-                    // Dial number
-                    val intent = Intent(Intent.ACTION_DIAL).apply {
-                        data = Uri.parse("tel:${contact.replace("-", "")}")
-                    }
-                    startActivity(intent)
-                } else {
-                    Toast.makeText(this, "Contact not provided", Toast.LENGTH_SHORT).show()
-                }
-            }
+        val postId = intent.getIntExtra("POST_ID", -1)
+        if (postId != -1) {
+            fetchPostDetails(postId)
+        } else {
+            Toast.makeText(this, "Invalid Post ID", Toast.LENGTH_SHORT).show()
+            finish()
         }
+    }
+
+    private fun fetchPostDetails(postId: Int) {
+        val url = ApiConfig.buildUrl(ApiConfig.GET_POST, "post_id" to postId.toString())
+
+        val request = JsonObjectRequest(
+            Request.Method.GET, url, null,
+            { response ->
+                try {
+                    val success = response.getBoolean("success")
+                    if (success) {
+                        val postObj = response.getJSONObject("post")
+                        val post = Post(
+                            postId = postObj.getInt("post_id"),
+                            userId = postObj.getInt("user_id"),
+                            postType = postObj.getString("post_type"),
+                            itemName = postObj.getString("item_name"),
+                            description = postObj.getString("description"),
+                            category = postObj.getString("category"),
+                            locationFound = postObj.getString("location_found"),
+                            building = postObj.getString("building"),
+                            floorNumber = if (postObj.isNull("floor_number")) null else postObj.getString("floor_number"),
+                            status = postObj.getString("status"),
+                            dateLostFound = postObj.getString("date_lost_found"),
+                            contactNumber = if (postObj.isNull("contact_number")) null else postObj.getString("contact_number"),
+                            imageUrls = jsonArrayToList(postObj.getJSONArray("image_urls")),
+                            createdAt = postObj.getString("created_at"),
+                            updatedAt = postObj.getString("updated_at"),
+                            postedBy = postObj.getString("posted_by")
+                        )
+                        displayPostDetails(post)
+                    } else {
+                        Toast.makeText(this, response.optString("message", "Post not found"), Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    Toast.makeText(this, "Error parsing post details", Toast.LENGTH_SHORT).show()
+                }
+            },
+            { error ->
+                Toast.makeText(this, "Network error: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        )
+
+        Volley.newRequestQueue(this).add(request)
+    }
+
+    private fun displayPostDetails(post: Post) {
+        toolbar.title = post.itemName
+        
+        imageViewPager.adapter = ImagePagerAdapter(post.imageUrls)
+        imageCounter.text = "1/${post.imageUrls.size}"
+        imageViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(pos: Int) {
+                imageCounter.text = "${pos + 1}/${post.imageUrls.size}"
+            }
+        })
+
+        postTypeBadge.text = post.postType.uppercase()
+        postTypeBadge.setBackgroundColor(
+            if (post.postType.lowercase() == "lost") Color.parseColor("#D32F2F")
+            else Color.parseColor("#1B5E20")
+        )
+
+        postTitle.text = post.itemName
+        postDescription.text = post.description
+        categoryText.text = "Category: ${post.category}"
+        postedByText.text = "Posted by: ${post.postedBy}"
+        lastSeenLocation.text = "${post.locationFound}, ${post.building}, Floor ${post.floorNumber ?: "-"}"
+        lastSeenTime.text = post.dateLostFound
+        contactPerson.text = post.contactNumber ?: "Not Provided"
     }
 }

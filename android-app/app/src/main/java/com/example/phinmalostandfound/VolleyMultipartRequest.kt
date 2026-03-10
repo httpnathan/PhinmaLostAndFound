@@ -65,8 +65,8 @@ abstract class VolleyMultipartRequest(
     }
 
     @Throws(AuthFailureError::class)
-    override fun getParams(): MutableMap<String, String> {
-        return HashMap()
+    override fun getParams(): MutableMap<String, String>? {
+        return super.getParams()
     }
 
     protected open fun getByteData(): Map<String, DataPart>? {
@@ -82,9 +82,8 @@ abstract class VolleyMultipartRequest(
         for ((key, value) in params) {
             dos.writeBytes(twoHyphens + boundary + lineEnd)
             dos.writeBytes("Content-Disposition: form-data; name=\"$key\"$lineEnd")
-            dos.writeBytes("Content-Type: text/plain; charset=$encoding$lineEnd")
             dos.writeBytes(lineEnd)
-            dos.writeBytes(value)
+            dos.write(value.toByteArray(charset(encoding)))
             dos.writeBytes(lineEnd)
         }
     }

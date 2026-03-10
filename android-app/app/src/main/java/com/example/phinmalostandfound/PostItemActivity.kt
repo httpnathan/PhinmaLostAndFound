@@ -1,17 +1,22 @@
 package com.example.phinmalostandfound
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import org.json.JSONObject
 import java.io.ByteArrayOutputStream
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PostItemActivity : AppCompatActivity() {
 
@@ -21,22 +26,37 @@ class PostItemActivity : AppCompatActivity() {
     private lateinit var selectImageButton: Button
     private lateinit var categorySpinner: Spinner
     private lateinit var locationSpinner: Spinner
+    private lateinit var postTypeSpinner: Spinner
     private lateinit var bottomNavigation: BottomNavigationView
+    private lateinit var userIdHiddenField: EditText
+    private lateinit var firstNameHiddenField: EditText
+    private lateinit var lastNameHiddenField: EditText
+    private lateinit var postingAsTextView: TextView
 
     private var selectedImageUri: Uri? = null
     private val PICK_IMAGE_REQUEST = 1
-
-    // 🔥 CHANGE THIS TO YOUR SERVER IP
-    private val uploadUrl = "http://10.36.42.34/phinma-api/backend/posts.php?action=create"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post_item)
 
         initializeViews()
+        setupSpinners()
         setupBottomNavigation()
         setupClickListeners()
-        setupSpinners()
+        
+        // Populate hidden fields from SharedPreferences
+        val sharedPreferences = getSharedPreferences("PhinmaLostAndFound", Context.MODE_PRIVATE)
+        val userId = sharedPreferences.getInt("userId", -1)
+        val firstName = sharedPreferences.getString("userFirstName", "")
+        val lastName = sharedPreferences.getString("userLastName", "")
+        
+        if (userId != -1) {
+            userIdHiddenField.setText(userId.toString())
+            firstNameHiddenField.setText(firstName)
+            lastNameHiddenField.setText(lastName)
+            postingAsTextView.text = "Posting as: $firstName $lastName"
+        }
     }
 
     private fun initializeViews() {
@@ -46,19 +66,23 @@ class PostItemActivity : AppCompatActivity() {
         selectImageButton = findViewById(R.id.selectImageButton)
         categorySpinner = findViewById(R.id.categorySpinner)
         locationSpinner = findViewById(R.id.locationSpinner)
+        postTypeSpinner = findViewById(R.id.postTypeSpinner)
         bottomNavigation = findViewById(R.id.bottomNavigation)
+        userIdHiddenField = findViewById(R.id.userIdHiddenField)
+        firstNameHiddenField = findViewById(R.id.firstNameHiddenField)
+        lastNameHiddenField = findViewById(R.id.lastNameHiddenField)
+        postingAsTextView = findViewById(R.id.postingAsTextView)
     }
 
     private fun setupSpinners() {
-        // Example categories
-        val categories = listOf("General", "Electronics", "Documents", "Bags & Accessories")
-        categorySpinner.adapter =
-            ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories)
+        val categories = listOf("General", "Electronics", "Documents", "Bags & Accessories", "Jewelry", "Other")
+        categorySpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories)
 
-        // Example locations
-        val locations = listOf("Main Campus", "Library", "Cafeteria", "Admin Building")
-        locationSpinner.adapter =
-            ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, locations)
+        val locations = listOf("Main Building", "Library", "Cafeteria", "Student Plaza", "Gymnasium", "Engineering Lab", "Science Lab", "Other")
+        locationSpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, locations)
+
+        val postTypes = listOf("Lost", "Found")
+        postTypeSpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, postTypes)
     }
 
     private fun setupBottomNavigation() {
@@ -98,55 +122,95 @@ class PostItemActivity : AppCompatActivity() {
         val description = descriptionEditText.text.toString().trim()
         val category = categorySpinner.selectedItem.toString()
         val location = locationSpinner.selectedItem.toString()
+        val postType = postTypeSpinner.selectedItem.toString().lowercase()
+        val userIdText = userIdHiddenField.text.toString()
+        val firstName = firstNameHiddenField.text.toString()
+        val lastName = lastNameHiddenField.text.toString()
 
-        if (selectedImageUri == null || description.isEmpty()) {
-            Toast.makeText(this, "Please select an image and enter a description", Toast.LENGTH_SHORT).show()
+        if (description.isEmpty()) {
+            Toast.makeText(this, "Please enter a description", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (userIdText.isEmpty() || userIdText == "-1") {
+            Toast.makeText(this, "Session expired. Please login again.", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
             return
         }
 
         val progressDialog = ProgressDialog(this)
-        progressDialog.setMessage("Uploading...")
+        progressDialog.setMessage("Creating post...")
+        progressDialog.setCancelable(false)
         progressDialog.show()
 
-        val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedImageUri)
-        val byteArrayOutputStream = ByteArrayOutputStream()
-        bitmap.compress(android.graphics.Bitmap.CompressFormat.JPEG, 80, byteArrayOutputStream)
-        val imageBytes = byteArrayOutputStream.toByteArray()
+        var imageBytes: ByteArray? = null
+        selectedImageUri?.let { uri ->
+            try {
+                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, uri)
+                val byteArrayOutputStream = ByteArrayOutputStream()
+                bitmap.compress(android.graphics.Bitmap.CompressFormat.JPEG, 70, byteArrayOutputStream)
+                imageBytes = byteArrayOutputStream.toByteArray()
+            } catch (e: Exception) {
+                Log.e("PostItemActivity", "Image conversion failed", e)
+            }
+        }
+
+        // Add user_id to the URL to ensure it's captured by the backend
+        val uploadUrl = ApiConfig.buildUrl(ApiConfig.CREATE_POST, "user_id" to userIdText)
 
         val request = object : VolleyMultipartRequest(
             Request.Method.POST,
             uploadUrl,
             Response.Listener { response ->
                 progressDialog.dismiss()
-                Toast.makeText(this, "Post uploaded successfully!", Toast.LENGTH_LONG).show()
-                navigateToHome()
+                try {
+                    val responseString = String(response.data)
+                    val jsonResponse = JSONObject(responseString)
+                    val success = jsonResponse.optBoolean("success", false)
+                    val message = jsonResponse.optString("message", "Unknown error")
+                    
+                    if (success) {
+                        Toast.makeText(this, "Post Created Successfully!", Toast.LENGTH_LONG).show()
+                        navigateToHome()
+                    } else {
+                        Toast.makeText(this, "Server Error: $message", Toast.LENGTH_LONG).show()
+                    }
+                } catch (e: Exception) {
+                    val responseBody = String(response.data)
+                    Log.e("PostItemActivity", "Response Error: $responseBody", e)
+                    Toast.makeText(this, "Unexpected response format", Toast.LENGTH_SHORT).show()
+                }
             },
             Response.ErrorListener { error ->
                 progressDialog.dismiss()
-                Toast.makeText(this, "Upload failed: ${error.message}", Toast.LENGTH_LONG).show()
+                val responseBody = error.networkResponse?.data?.let { String(it) } ?: ""
+                Log.e("PostItemActivity", "Upload failed: $responseBody", error)
+                Toast.makeText(this, "Connection Error. Check internet/IP.", Toast.LENGTH_LONG).show()
             }
         ) {
             override fun getParams(): MutableMap<String, String> {
                 return hashMapOf(
-                    "user_id" to "1", // Replace with actual logged-in user ID
-                    "post_type" to "lost", // You can make a spinner for lost/found
+                    "user_id" to userIdText,
+                    "first_name" to firstName,
+                    "last_name" to lastName,
+                    "post_type" to postType, 
+                    "item_name" to if (description.length > 20) description.substring(0, 20) else description,
                     "description" to description,
                     "category" to category,
                     "location_found" to location,
-                    "building" to "Admin", // Replace or make another spinner
+                    "building" to location,
                     "floor_number" to "1",
-                    "date_lost_found" to "2026-02-16 12:00:00" // Could use date picker
+                    "date_lost_found" to SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
                 )
             }
 
-            override fun getByteData(): MutableMap<String, DataPart> {
-                return hashMapOf(
-                    "image" to DataPart(
-                        "image_${System.currentTimeMillis()}.jpg",
-                        imageBytes,
-                        "image/jpeg"
-                    )
-                )
+            override fun getByteData(): Map<String, DataPart> {
+                val params = HashMap<String, DataPart>()
+                imageBytes?.let {
+                    params["image"] = DataPart("post_${System.currentTimeMillis()}.jpg", it, "image/jpeg")
+                }
+                return params
             }
         }
 
@@ -154,7 +218,10 @@ class PostItemActivity : AppCompatActivity() {
     }
 
     private fun navigateToHome() {
-        startActivity(Intent(this, HomeActivity::class.java))
+        val intent = Intent(this, HomeActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish()
     }
 
     private fun navigateToSearch() {

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.phinmalostandfound.app-mergeDebugResources-34:/values-lo/values-lo.xml",
+            "outputFile": "com.example.phinmalostandfound.app-mergeDebugResources-35:/values-lo/values-lo.xml",
             "map": [
                 {
                     "source": "/home/Enoki/.gradle/caches/9.0-milestone-1/transforms/5d64804f8051a0b2addf541cd0664b64/transformed/appcompat-1.6.1/res/values-lo/values-lo.xml",

@@ -3246,6 +3246,7 @@ id cache_measures
 id callMeasure
 id cancel_button
 id carryVelocity
+id categorySpinner
 id categoryText
 id center
 id centerCrop
@@ -3344,6 +3345,7 @@ id fill_vertical
 id filled
 id filterButton
 id firstNameEditText
+id firstNameHiddenField
 id fitCenter
 id fitEnd
 id fitStart
@@ -3360,6 +3362,7 @@ id frost
 id fullscreen_header
 id ghost_view
 id ghost_view_holder
+id glide_custom_view_target_tag
 id gone
 id graph
 id graph_wrap
@@ -3396,6 +3399,7 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id lastNameEditText
+id lastNameHiddenField
 id lastSeenLocation
 id lastSeenTime
 id layout
@@ -3407,6 +3411,7 @@ id line3
 id linear
 id listMode
 id list_item
+id locationSpinner
 id locationSwitch
 id loginButton
 id loginTextView
@@ -3540,7 +3545,9 @@ id postImageView
 id postLayout
 id postTitle
 id postTypeBadge
+id postTypeSpinner
 id postedByText
+id postingAsTextView
 id postsCountTextView
 id postsRecyclerView
 id pressed
@@ -3690,6 +3697,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id userIdHiddenField
 id userNameTextView
 id usernameTextView
 id versionTextView

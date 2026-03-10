@@ -3245,6 +3245,7 @@ int id cache_measures 0x7f080069
 int id callMeasure 0x7f08006a
 int id cancel_button 0x7f08006b
 int id carryVelocity 0x7f08006c
+int id categorySpinner 0x7f080241
 int id categoryText 0x7f08006d
 int id center 0x7f08006e
 int id centerCrop 0x7f08006f
@@ -3343,6 +3344,7 @@ int id fill_vertical 0x7f0800ca
 int id filled 0x7f0800cb
 int id filterButton 0x7f0800cc
 int id firstNameEditText 0x7f0800cd
+int id firstNameHiddenField 0x7f080245
 int id fitCenter 0x7f0800ce
 int id fitEnd 0x7f0800cf
 int id fitStart 0x7f0800d0
@@ -3359,6 +3361,7 @@ int id frost 0x7f0800da
 int id fullscreen_header 0x7f0800db
 int id ghost_view 0x7f0800dc
 int id ghost_view_holder 0x7f0800dd
+int id glide_custom_view_target_tag 0x7f080240
 int id gone 0x7f0800de
 int id graph 0x7f0800e1
 int id graph_wrap 0x7f0800e2
@@ -3395,6 +3398,7 @@ int id jumpToEnd 0x7f080100
 int id jumpToStart 0x7f080101
 int id labeled 0x7f080102
 int id lastNameEditText 0x7f080103
+int id lastNameHiddenField 0x7f080246
 int id lastSeenLocation 0x7f080104
 int id lastSeenTime 0x7f080105
 int id layout 0x7f080106
@@ -3406,6 +3410,7 @@ int id line3 0x7f08010b
 int id linear 0x7f08010c
 int id listMode 0x7f08010d
 int id list_item 0x7f08010e
+int id locationSpinner 0x7f080242
 int id locationSwitch 0x7f08010f
 int id loginButton 0x7f080110
 int id loginTextView 0x7f080111
@@ -3539,7 +3544,9 @@ int id postImageView 0x7f080190
 int id postLayout 0x7f080191
 int id postTitle 0x7f080192
 int id postTypeBadge 0x7f080193
+int id postTypeSpinner 0x7f080243
 int id postedByText 0x7f080194
+int id postingAsTextView 0x7f080247
 int id postsCountTextView 0x7f080195
 int id postsRecyclerView 0x7f080196
 int id pressed 0x7f080197
@@ -3689,6 +3696,7 @@ int id uniform 0x7f080226
 int id unlabeled 0x7f080227
 int id up 0x7f080228
 int id useLogo 0x7f080229
+int id userIdHiddenField 0x7f080244
 int id userNameTextView 0x7f08022a
 int id usernameTextView 0x7f08022b
 int id versionTextView 0x7f08022c
