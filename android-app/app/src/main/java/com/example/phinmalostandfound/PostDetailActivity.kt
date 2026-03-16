@@ -1,7 +1,9 @@
 package com.example.phinmalostandfound
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +26,10 @@ class PostDetailActivity : AppCompatActivity() {
     private lateinit var lastSeenLocation: TextView
     private lateinit var lastSeenTime: TextView
     private lateinit var contactPerson: TextView
+    private lateinit var contactButton: Button
+
+    private var postOwnerId: Int = -1
+    private var postOwnerName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +46,7 @@ class PostDetailActivity : AppCompatActivity() {
         lastSeenLocation = findViewById(R.id.lastSeenLocation)
         lastSeenTime = findViewById(R.id.lastSeenTime)
         contactPerson = findViewById(R.id.contactPerson)
+        contactButton = findViewById(R.id.contactButton)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -123,5 +130,16 @@ class PostDetailActivity : AppCompatActivity() {
         lastSeenLocation.text = "${post.locationFound}, ${post.building}, Floor ${post.floorNumber ?: "-"}"
         lastSeenTime.text = post.dateLostFound
         contactPerson.text = post.contactNumber ?: "Not Provided"
+
+        postOwnerId = post.userId
+        postOwnerName = post.postedBy
+
+        contactButton.setOnClickListener {
+            val intent = Intent(this, PrivateMessageActivity::class.java)
+            intent.putExtra("USER_ID", postOwnerId.toString())
+            intent.putExtra("USER_NAME", postOwnerName)
+            intent.putExtra("POST_TITLE", post.itemName)
+            startActivity(intent)
+        }
     }
 }

@@ -58,6 +58,7 @@ class PostAdapter(private val posts: List<Post>) :
 
         holder.messageButton.setOnClickListener {
             val intent = android.content.Intent(holder.itemView.context, PrivateMessageActivity::class.java)
+            intent.putExtra("USER_ID", post.userId.toString())
             intent.putExtra("USER_NAME", post.postedBy)
             intent.putExtra("POST_TITLE", post.itemName)
             holder.itemView.context.startActivity(intent)
