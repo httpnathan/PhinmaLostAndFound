@@ -35,13 +35,18 @@ class PostAdapter(private val posts: List<Post>) :
 
         holder.imageViewPager.adapter = ImagePagerAdapter(post.imageUrls)
 
-        holder.imageViewPager.registerOnPageChangeCallback(object :
-            ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(pos: Int) {
-                holder.imageCounter.text = "${pos + 1}/${post.imageUrls.size}"
-            }
-        })
-        holder.imageCounter.text = "1/${post.imageUrls.size}"
+        if (post.imageUrls.isEmpty()) {
+            holder.imageCounter.visibility = View.GONE
+        } else {
+            holder.imageCounter.visibility = View.VISIBLE
+            holder.imageCounter.text = "1/${post.imageUrls.size}"
+            holder.imageViewPager.registerOnPageChangeCallback(object :
+                ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(pos: Int) {
+                    holder.imageCounter.text = "${pos + 1}/${post.imageUrls.size}"
+                }
+            })
+        }
 
         holder.postTypeBadge.text = post.postType.uppercase()
         holder.postTypeBadge.setBackgroundColor(

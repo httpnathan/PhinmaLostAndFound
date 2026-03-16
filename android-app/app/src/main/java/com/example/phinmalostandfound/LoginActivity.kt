@@ -79,6 +79,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun performLogin(email: String, password: String) {
+        loginButton.isEnabled = false
+        loginButton.text = "Signing in..."
+
         val url = ApiConfig.LOGIN
 
         val jsonBody = JSONObject()
@@ -113,10 +116,14 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(Intent(this, HomeActivity::class.java))
                     finish()
                 } else {
+                    loginButton.isEnabled = true
+                    loginButton.text = "Login"
                     Toast.makeText(this, message, Toast.LENGTH_LONG).show()
                 }
             },
             { error ->
+                loginButton.isEnabled = true
+                loginButton.text = "Login"
                 Toast.makeText(this, "Login failed: ${error.message}", Toast.LENGTH_LONG).show()
             }
         )

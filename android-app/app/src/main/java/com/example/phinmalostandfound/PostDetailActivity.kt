@@ -110,12 +110,17 @@ class PostDetailActivity : AppCompatActivity() {
         toolbar.title = post.itemName
         
         imageViewPager.adapter = ImagePagerAdapter(post.imageUrls)
-        imageCounter.text = "1/${post.imageUrls.size}"
-        imageViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(pos: Int) {
-                imageCounter.text = "${pos + 1}/${post.imageUrls.size}"
-            }
-        })
+        if (post.imageUrls.isEmpty()) {
+            imageCounter.visibility = android.view.View.GONE
+        } else {
+            imageCounter.visibility = android.view.View.VISIBLE
+            imageCounter.text = "1/${post.imageUrls.size}"
+            imageViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(pos: Int) {
+                    imageCounter.text = "${pos + 1}/${post.imageUrls.size}"
+                }
+            })
+        }
 
         postTypeBadge.text = post.postType.uppercase()
         postTypeBadge.setBackgroundColor(

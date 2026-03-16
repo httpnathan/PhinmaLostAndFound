@@ -38,7 +38,7 @@ class PrivateMessageActivity : AppCompatActivity() {
         val postTitle = intent.getStringExtra("POST_TITLE")
 
         val prefs = getSharedPreferences("PhinmaLostAndFound", MODE_PRIVATE)
-        currentUserId = prefs.getString("userId", "-1")?.toIntOrNull() ?: -1
+        currentUserId = prefs.getInt("userId", -1)
 
         initializeViews()
         userNameTextView.text = userName

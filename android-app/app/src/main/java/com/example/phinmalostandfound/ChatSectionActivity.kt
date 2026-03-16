@@ -42,9 +42,11 @@ class ChatSectionActivity : AppCompatActivity() {
 
     private fun loadChats() {
         val prefs = getSharedPreferences("PhinmaLostAndFound", MODE_PRIVATE)
-        val userId = prefs.getString("userId", null) ?: return
+        val userId = prefs.getInt("userId", -1)
+        if (userId == -1) return
+        val userIdStr = userId.toString()
 
-        val url = ApiConfig.buildUrl(ApiConfig.GET_CHATS, "user_id" to userId)
+        val url = ApiConfig.buildUrl(ApiConfig.GET_CHATS, "user_id" to userIdStr)
 
         val request = StringRequest(
             Request.Method.GET, url,

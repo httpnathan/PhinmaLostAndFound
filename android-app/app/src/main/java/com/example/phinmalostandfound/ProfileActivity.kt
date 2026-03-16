@@ -84,13 +84,13 @@ class ProfileActivity : AppCompatActivity() {
         val firstName = prefs.getString("userFirstName", "") ?: ""
         val lastName = prefs.getString("userLastName", "") ?: ""
         val email = prefs.getString("userEmail", "") ?: ""
-        val userId = prefs.getString("userId", null)
+        val userId = prefs.getInt("userId", -1)
 
         usernameTextView.text = "$firstName $lastName".trim()
         emailTextView.text = email
 
-        if (userId != null) {
-            loadPostCount(userId)
+        if (userId != -1) {
+            loadPostCount(userId.toString())
         }
     }
 

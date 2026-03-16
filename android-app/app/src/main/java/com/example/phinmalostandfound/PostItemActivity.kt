@@ -21,6 +21,7 @@ import java.util.*
 class PostItemActivity : AppCompatActivity() {
 
     private lateinit var postImageView: ImageView
+    private lateinit var itemNameEditText: EditText
     private lateinit var descriptionEditText: EditText
     private lateinit var postButton: Button
     private lateinit var selectImageButton: Button
@@ -67,6 +68,7 @@ class PostItemActivity : AppCompatActivity() {
 
     private fun initializeViews() {
         postImageView = findViewById(R.id.postImageView)
+        itemNameEditText = findViewById(R.id.itemNameEditText)
         descriptionEditText = findViewById(R.id.descriptionEditText)
         postButton = findViewById(R.id.postButton)
         selectImageButton = findViewById(R.id.selectImageButton)
@@ -122,6 +124,7 @@ class PostItemActivity : AppCompatActivity() {
     }
 
     private fun createPost() {
+        val itemName = itemNameEditText.text.toString().trim()
         val description = descriptionEditText.text.toString().trim()
         val category = categorySpinner.selectedItem.toString()
         val location = locationSpinner.selectedItem.toString()
@@ -133,6 +136,11 @@ class PostItemActivity : AppCompatActivity() {
         val firstName = sharedPreferences.getString("userFirstName", "") ?: ""
         val lastName = sharedPreferences.getString("userLastName", "") ?: ""
         val userIdText = userId.toString()
+
+        if (itemName.isEmpty()) {
+            Toast.makeText(this, "Please enter an item name", Toast.LENGTH_SHORT).show()
+            return
+        }
 
         if (description.isEmpty()) {
             Toast.makeText(this, "Please enter a description", Toast.LENGTH_SHORT).show()
@@ -202,7 +210,7 @@ class PostItemActivity : AppCompatActivity() {
                     "first_name" to firstName,
                     "last_name" to lastName,
                     "post_type" to postType,
-                    "item_name" to if (description.length > 20) description.substring(0, 20) else description,
+                    "item_name" to itemName,
                     "description" to description,
                     "category" to category,
                     "location_found" to location,

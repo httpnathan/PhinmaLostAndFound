@@ -3,7 +3,9 @@ package com.example.phinmalostandfound
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +25,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var searchCardView: CardView
     private lateinit var filterButton: MaterialButton
     private lateinit var postsRecyclerView: RecyclerView
+    private lateinit var emptyPostsTextView: TextView
     private lateinit var bottomNavigation: BottomNavigationView
 
     private lateinit var postAdapter: PostAdapter
@@ -40,11 +43,17 @@ class HomeActivity : AppCompatActivity() {
         setupClickListeners()
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadPosts()
+    }
+
     private fun initializeViews() {
         notificationIcon = findViewById(R.id.notificationIcon)
         searchCardView = findViewById(R.id.searchCardView)
         filterButton = findViewById(R.id.filterButton)
         postsRecyclerView = findViewById(R.id.postsRecyclerView)
+        emptyPostsTextView = findViewById(R.id.emptyPostsTextView)
         bottomNavigation = findViewById(R.id.bottomNavigation)
     }
 
@@ -152,8 +161,15 @@ class HomeActivity : AppCompatActivity() {
 
     private fun refreshPosts() {
         val filteredPosts = getFilteredPosts()
-        postAdapter = PostAdapter(filteredPosts)
-        postsRecyclerView.adapter = postAdapter
+        if (filteredPosts.isEmpty()) {
+            emptyPostsTextView.visibility = View.VISIBLE
+            postsRecyclerView.visibility = View.GONE
+        } else {
+            emptyPostsTextView.visibility = View.GONE
+            postsRecyclerView.visibility = View.VISIBLE
+            postAdapter = PostAdapter(filteredPosts)
+            postsRecyclerView.adapter = postAdapter
+        }
     }
 
     private fun setupBottomNavigation() {
