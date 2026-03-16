@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,7 @@ class SearchActivity : AppCompatActivity() {
     private lateinit var searchEditText: EditText
     private lateinit var searchResultsRecyclerView: RecyclerView
     private lateinit var recentSearchesTextView: TextView
+    private lateinit var searchProgressBar: ProgressBar
     private lateinit var bottomNavigation: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +47,7 @@ class SearchActivity : AppCompatActivity() {
         searchEditText = findViewById(R.id.searchEditText)
         searchResultsRecyclerView = findViewById(R.id.searchResultsRecyclerView)
         recentSearchesTextView = findViewById(R.id.recentSearchesTextView)
+        searchProgressBar = findViewById(R.id.searchProgressBar)
         bottomNavigation = findViewById(R.id.bottomNavigation)
     }
 
@@ -87,11 +90,16 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun performSearch(query: String) {
+        searchProgressBar.visibility = View.VISIBLE
+        searchResultsRecyclerView.visibility = View.GONE
+
         val url = ApiConfig.buildUrl(ApiConfig.SEARCH_POSTS, "keyword" to query)
 
         val request = StringRequest(
             Request.Method.GET, url,
             { response ->
+                searchProgressBar.visibility = View.GONE
+                searchResultsRecyclerView.visibility = View.VISIBLE
                 try {
                     val jsonStart = response.indexOf("{")
                     if (jsonStart == -1) return@StringRequest
@@ -140,11 +148,13 @@ class SearchActivity : AppCompatActivity() {
                 }
             },
             { error ->
+                searchProgressBar.visibility = View.GONE
+                searchResultsRecyclerView.visibility = View.VISIBLE
                 Toast.makeText(this, "Network error: ${error.message}", Toast.LENGTH_SHORT).show()
             }
         )
 
-        Volley.newRequestQueue(this).add(request)
+        AppSingleton.getRequestQueue(this).add(request)
     }
 
     private fun navigateToHome() {

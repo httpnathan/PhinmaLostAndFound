@@ -1,17 +1,22 @@
 package com.example.phinmalostandfound
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
 import com.google.android.material.appbar.MaterialToolbar
+import org.json.JSONObject
 
 class PostDetailActivity : AppCompatActivity() {
 
@@ -27,6 +32,8 @@ class PostDetailActivity : AppCompatActivity() {
     private lateinit var lastSeenTime: TextView
     private lateinit var contactPerson: TextView
     private lateinit var contactButton: Button
+    private lateinit var shareButton: Button
+    private lateinit var markResolvedButton: Button
 
     private var postOwnerId: Int = -1
     private var postOwnerName: String = ""
@@ -47,6 +54,8 @@ class PostDetailActivity : AppCompatActivity() {
         lastSeenTime = findViewById(R.id.lastSeenTime)
         contactPerson = findViewById(R.id.contactPerson)
         contactButton = findViewById(R.id.contactButton)
+        shareButton = findViewById(R.id.shareButton)
+        markResolvedButton = findViewById(R.id.markResolvedButton)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -68,8 +77,7 @@ class PostDetailActivity : AppCompatActivity() {
             Request.Method.GET, url, null,
             { response ->
                 try {
-                    val success = response.getBoolean("success")
-                    if (success) {
+                    if (response.getBoolean("success")) {
                         val postObj = response.getJSONObject("post")
                         val post = Post(
                             postId = postObj.getInt("post_id"),
@@ -103,17 +111,17 @@ class PostDetailActivity : AppCompatActivity() {
             }
         )
 
-        Volley.newRequestQueue(this).add(request)
+        AppSingleton.getRequestQueue(this).add(request)
     }
 
     private fun displayPostDetails(post: Post) {
         toolbar.title = post.itemName
-        
+
         imageViewPager.adapter = ImagePagerAdapter(post.imageUrls)
         if (post.imageUrls.isEmpty()) {
-            imageCounter.visibility = android.view.View.GONE
+            imageCounter.visibility = View.GONE
         } else {
-            imageCounter.visibility = android.view.View.VISIBLE
+            imageCounter.visibility = View.VISIBLE
             imageCounter.text = "1/${post.imageUrls.size}"
             imageViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(pos: Int) {
@@ -134,11 +142,48 @@ class PostDetailActivity : AppCompatActivity() {
         postedByText.text = "Posted by: ${post.postedBy}"
         lastSeenLocation.text = "${post.locationFound}, ${post.building}, Floor ${post.floorNumber ?: "-"}"
         lastSeenTime.text = post.dateLostFound
-        contactPerson.text = post.contactNumber ?: "Not Provided"
+
+        val contactText = post.contactNumber?.takeIf { it.isNotEmpty() } ?: "Not Provided"
+        contactPerson.text = contactText
+
+        // Tap contact number to copy to clipboard
+        if (!post.contactNumber.isNullOrEmpty()) {
+            contactPerson.setOnClickListener {
+                val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                clipboard.setPrimaryClip(ClipData.newPlainText("Contact", post.contactNumber))
+                Toast.makeText(this, "Contact number copied!", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         postOwnerId = post.userId
         postOwnerName = post.postedBy
 
+        // Show "Mark Resolved" only to the post owner on active posts
+        val currentUserId = getSharedPreferences("PhinmaLostAndFound", MODE_PRIVATE).getInt("userId", -1)
+        if (currentUserId != -1 && currentUserId == post.userId && post.status == "active") {
+            markResolvedButton.visibility = View.VISIBLE
+            markResolvedButton.setOnClickListener { confirmMarkResolved(post.postId) }
+        }
+
+        // Share
+        shareButton.setOnClickListener {
+            val shareText = buildString {
+                append("📢 PHINMA Lost & Found\n\n")
+                append("${post.postType.uppercase()}: ${post.itemName}\n")
+                append("📍 Location: ${post.locationFound}\n")
+                append("📅 Date: ${post.dateLostFound}\n")
+                if (!post.contactNumber.isNullOrEmpty()) append("📞 Contact: ${post.contactNumber}\n")
+                append("\n${post.description}")
+            }
+            startActivity(Intent.createChooser(
+                Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT, shareText)
+                }, "Share this post"
+            ))
+        }
+
+        // Contact
         contactButton.setOnClickListener {
             val intent = Intent(this, PrivateMessageActivity::class.java)
             intent.putExtra("USER_ID", postOwnerId.toString())
@@ -146,5 +191,38 @@ class PostDetailActivity : AppCompatActivity() {
             intent.putExtra("POST_TITLE", post.itemName)
             startActivity(intent)
         }
+    }
+
+    private fun confirmMarkResolved(postId: Int) {
+        AlertDialog.Builder(this)
+            .setTitle("Mark as Resolved")
+            .setMessage("Has this item been found/returned? This will mark the post as resolved.")
+            .setPositiveButton("Yes, Resolved") { _, _ -> markPostResolved(postId) }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun markPostResolved(postId: Int) {
+        val body = JSONObject().apply {
+            put("post_id", postId)
+            put("status", "resolved")
+        }
+
+        val request = JsonObjectRequest(
+            Request.Method.POST, ApiConfig.UPDATE_POST, body,
+            { response ->
+                if (response.optBoolean("success", false)) {
+                    Toast.makeText(this, "Post marked as resolved!", Toast.LENGTH_SHORT).show()
+                    markResolvedButton.visibility = View.GONE
+                } else {
+                    Toast.makeText(this, "Could not update post status", Toast.LENGTH_SHORT).show()
+                }
+            },
+            { error ->
+                Toast.makeText(this, "Network error: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        )
+
+        AppSingleton.getRequestQueue(this).add(request)
     }
 }

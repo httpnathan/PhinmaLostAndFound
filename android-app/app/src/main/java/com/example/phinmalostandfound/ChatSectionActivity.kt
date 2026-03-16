@@ -3,6 +3,7 @@ package com.example.phinmalostandfound
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.json.JSONObject
 
@@ -19,6 +19,7 @@ class ChatSectionActivity : AppCompatActivity() {
     private lateinit var chatsRecyclerView: RecyclerView
     private lateinit var bottomNavigation: BottomNavigationView
     private lateinit var emptyChatsTextView: TextView
+    private lateinit var chatsProgressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +35,7 @@ class ChatSectionActivity : AppCompatActivity() {
         chatsRecyclerView = findViewById(R.id.chatsRecyclerView)
         bottomNavigation = findViewById(R.id.bottomNavigation)
         emptyChatsTextView = findViewById(R.id.emptyChatsTextView)
+        chatsProgressBar = findViewById(R.id.chatsProgressBar)
     }
 
     private fun setupRecyclerView() {
@@ -48,9 +50,14 @@ class ChatSectionActivity : AppCompatActivity() {
 
         val url = ApiConfig.buildUrl(ApiConfig.GET_CHATS, "user_id" to userIdStr)
 
+        chatsProgressBar.visibility = View.VISIBLE
+        chatsRecyclerView.visibility = View.GONE
+        emptyChatsTextView.visibility = View.GONE
+
         val request = StringRequest(
             Request.Method.GET, url,
             { response ->
+                chatsProgressBar.visibility = View.GONE
                 try {
                     val jsonStart = response.indexOf("{")
                     if (jsonStart == -1) return@StringRequest
@@ -90,11 +97,13 @@ class ChatSectionActivity : AppCompatActivity() {
                 }
             },
             { error ->
+                chatsProgressBar.visibility = View.GONE
+                chatsRecyclerView.visibility = View.VISIBLE
                 Toast.makeText(this, "Network error: ${error.message}", Toast.LENGTH_SHORT).show()
             }
         )
 
-        Volley.newRequestQueue(this).add(request)
+        AppSingleton.getRequestQueue(this).add(request)
     }
 
     private fun setupBottomNavigation() {

@@ -20,7 +20,7 @@ object ApiConfig {
     
     // 🔧 CHANGE THIS to your computer's IP address
     // Example: "http://192.168.1.100/phinma-api/backend/"
-    private const val BASE_URL = "http://10.20.173.34/phinma-api/backend/"
+    private const val BASE_URL = "http://192.168.1.30/phinma-api/backend/"
     
     // Authentication Endpoints
     const val LOGIN = "${BASE_URL}auth.php?action=login"
@@ -48,8 +48,10 @@ object ApiConfig {
      */
     fun buildUrl(baseUrl: String, vararg params: Pair<String, String>): String {
         if (params.isEmpty()) return baseUrl
-        
-        val queryParams = params.joinToString("&") { "${it.first}=${it.second}" }
+
+        val queryParams = params.joinToString("&") {
+            "${java.net.URLEncoder.encode(it.first, "UTF-8")}=${java.net.URLEncoder.encode(it.second, "UTF-8")}"
+        }
         val separator = if (baseUrl.contains("?")) "&" else "?"
         return "$baseUrl$separator$queryParams"
     }

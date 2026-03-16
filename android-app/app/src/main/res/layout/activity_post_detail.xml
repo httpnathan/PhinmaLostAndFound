@@ -300,12 +300,52 @@
 
                     </LinearLayout>
 
+                    <!-- Secondary Actions Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/markResolvedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:text="Mark Resolved"
+                            android:textColor="@color/phinma_dark_green"
+                            android:textAllCaps="false"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            style="?attr/materialButtonOutlinedStyle"
+                            app:strokeColor="@color/phinma_dark_green"
+                            app:cornerRadius="12dp"
+                            android:paddingTop="14dp"
+                            android:paddingBottom="14dp"/>
+
+                        <Button
+                            android:id="@+id/shareButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Share"
+                            android:textColor="@color/text_secondary"
+                            android:textAllCaps="false"
+                            android:textSize="14sp"
+                            style="?attr/materialButtonOutlinedStyle"
+                            app:strokeColor="@color/light_gray"
+                            app:cornerRadius="12dp"
+                            android:paddingTop="14dp"
+                            android:paddingBottom="14dp"/>
+
+                    </LinearLayout>
+
                     <!-- Contact Button -->
                     <Button
                         android:id="@+id/contactButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="8dp"
                         android:backgroundTint="@color/phinma_dark_green"
                         android:text="Contact Now"
                         android:textColor="@color/white"

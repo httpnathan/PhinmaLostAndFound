@@ -1,17 +1,19 @@
 package com.example.phinmalostandfound
 
+import android.app.DatePickerDialog
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.Response
-import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.json.JSONObject
 import java.io.ByteArrayOutputStream
@@ -23,6 +25,9 @@ class PostItemActivity : AppCompatActivity() {
     private lateinit var postImageView: ImageView
     private lateinit var itemNameEditText: EditText
     private lateinit var descriptionEditText: EditText
+    private lateinit var descriptionCharCounter: TextView
+    private lateinit var dateLostFoundEditText: EditText
+    private lateinit var contactNumberEditText: EditText
     private lateinit var postButton: Button
     private lateinit var selectImageButton: Button
     private lateinit var categorySpinner: Spinner
@@ -31,13 +36,14 @@ class PostItemActivity : AppCompatActivity() {
     private lateinit var bottomNavigation: BottomNavigationView
     private lateinit var postingAsTextView: TextView
 
-    // User data read directly from SharedPreferences — no hidden EditText needed
     private var currentUserId: Int = -1
     private var currentFirstName: String = ""
     private var currentLastName: String = ""
+    private var selectedDateStr: String = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 
     private var selectedImageUri: Uri? = null
     private val PICK_IMAGE_REQUEST = 1
+    private val DESC_MAX_CHARS = 500
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +54,8 @@ class PostItemActivity : AppCompatActivity() {
         setupSpinners()
         setupBottomNavigation()
         setupClickListeners()
+        setupDescriptionCounter()
+        setDefaultDate()
     }
 
     private fun loadUserSession() {
@@ -59,7 +67,6 @@ class PostItemActivity : AppCompatActivity() {
         if (currentUserId != -1) {
             postingAsTextView.text = "Posting as: $currentFirstName $currentLastName"
         } else {
-            // No valid session, redirect to login
             Toast.makeText(this, "Session expired. Please login again.", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
@@ -70,6 +77,9 @@ class PostItemActivity : AppCompatActivity() {
         postImageView = findViewById(R.id.postImageView)
         itemNameEditText = findViewById(R.id.itemNameEditText)
         descriptionEditText = findViewById(R.id.descriptionEditText)
+        descriptionCharCounter = findViewById(R.id.descriptionCharCounter)
+        dateLostFoundEditText = findViewById(R.id.dateLostFoundEditText)
+        contactNumberEditText = findViewById(R.id.contactNumberEditText)
         postButton = findViewById(R.id.postButton)
         selectImageButton = findViewById(R.id.selectImageButton)
         categorySpinner = findViewById(R.id.categorySpinner)
@@ -77,6 +87,28 @@ class PostItemActivity : AppCompatActivity() {
         postTypeSpinner = findViewById(R.id.postTypeSpinner)
         bottomNavigation = findViewById(R.id.bottomNavigation)
         postingAsTextView = findViewById(R.id.postingAsTextView)
+    }
+
+    private fun setDefaultDate() {
+        val today = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+        selectedDateStr = today
+        dateLostFoundEditText.setText(today)
+    }
+
+    private fun setupDescriptionCounter() {
+        descriptionCharCounter.text = "0/$DESC_MAX_CHARS"
+        descriptionEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val count = s?.length ?: 0
+                descriptionCharCounter.text = "$count/$DESC_MAX_CHARS"
+                descriptionCharCounter.setTextColor(
+                    if (count > DESC_MAX_CHARS) android.graphics.Color.RED
+                    else getColor(R.color.text_secondary)
+                )
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
 
     private fun setupSpinners() {
@@ -107,6 +139,23 @@ class PostItemActivity : AppCompatActivity() {
     private fun setupClickListeners() {
         selectImageButton.setOnClickListener { openImagePicker() }
         postButton.setOnClickListener { createPost() }
+        dateLostFoundEditText.setOnClickListener { showDatePicker() }
+    }
+
+    private fun showDatePicker() {
+        val calendar = Calendar.getInstance()
+        DatePickerDialog(
+            this,
+            { _, year, month, day ->
+                selectedDateStr = String.format("%04d-%02d-%02d", year, month + 1, day)
+                dateLostFoundEditText.setText(selectedDateStr)
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        ).apply {
+            datePicker.maxDate = System.currentTimeMillis()
+        }.show()
     }
 
     private fun openImagePicker() {
@@ -126,11 +175,11 @@ class PostItemActivity : AppCompatActivity() {
     private fun createPost() {
         val itemName = itemNameEditText.text.toString().trim()
         val description = descriptionEditText.text.toString().trim()
+        val contactNumber = contactNumberEditText.text.toString().trim()
         val category = categorySpinner.selectedItem.toString()
         val location = locationSpinner.selectedItem.toString()
         val postType = postTypeSpinner.selectedItem.toString().lowercase()
 
-        // Always read fresh from SharedPreferences — guarantees user_id is valid
         val sharedPreferences = getSharedPreferences("PhinmaLostAndFound", Context.MODE_PRIVATE)
         val userId = sharedPreferences.getInt("userId", -1)
         val firstName = sharedPreferences.getString("userFirstName", "") ?: ""
@@ -138,12 +187,20 @@ class PostItemActivity : AppCompatActivity() {
         val userIdText = userId.toString()
 
         if (itemName.isEmpty()) {
-            Toast.makeText(this, "Please enter an item name", Toast.LENGTH_SHORT).show()
+            itemNameEditText.error = "Please enter an item name"
+            itemNameEditText.requestFocus()
             return
         }
 
         if (description.isEmpty()) {
-            Toast.makeText(this, "Please enter a description", Toast.LENGTH_SHORT).show()
+            descriptionEditText.error = "Please enter a description"
+            descriptionEditText.requestFocus()
+            return
+        }
+
+        if (description.length > DESC_MAX_CHARS) {
+            descriptionEditText.error = "Description too long (max $DESC_MAX_CHARS characters)"
+            descriptionEditText.requestFocus()
             return
         }
 
@@ -171,7 +228,6 @@ class PostItemActivity : AppCompatActivity() {
             }
         }
 
-        // Add user_id to the URL to ensure it's captured by the backend
         val uploadUrl = ApiConfig.buildUrl(ApiConfig.CREATE_POST, "user_id" to userIdText)
 
         val request = object : VolleyMultipartRequest(
@@ -192,8 +248,7 @@ class PostItemActivity : AppCompatActivity() {
                         Toast.makeText(this, "Server Error: $message", Toast.LENGTH_LONG).show()
                     }
                 } catch (e: Exception) {
-                    val responseBody = String(response.data)
-                    Log.e("PostItemActivity", "Response Error: $responseBody", e)
+                    Log.e("PostItemActivity", "Response Error: ${String(response.data)}", e)
                     Toast.makeText(this, "Unexpected response format", Toast.LENGTH_SHORT).show()
                 }
             },
@@ -216,7 +271,8 @@ class PostItemActivity : AppCompatActivity() {
                     "location_found" to location,
                     "building" to location,
                     "floor_number" to "1",
-                    "date_lost_found" to SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+                    "contact_number" to contactNumber,
+                    "date_lost_found" to selectedDateStr
                 )
             }
 
@@ -229,7 +285,7 @@ class PostItemActivity : AppCompatActivity() {
             }
         }
 
-        Volley.newRequestQueue(this).add(request)
+        AppSingleton.getRequestQueue(this).add(request)
     }
 
     private fun navigateToHome() {
@@ -239,15 +295,7 @@ class PostItemActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun navigateToSearch() {
-        startActivity(Intent(this, SearchActivity::class.java))
-    }
-
-    private fun navigateToChatSection() {
-        startActivity(Intent(this, ChatSectionActivity::class.java))
-    }
-
-    private fun navigateToMenu() {
-        startActivity(Intent(this, MenuActivity::class.java))
-    }
+    private fun navigateToSearch() { startActivity(Intent(this, SearchActivity::class.java)) }
+    private fun navigateToChatSection() { startActivity(Intent(this, ChatSectionActivity::class.java)) }
+    private fun navigateToMenu() { startActivity(Intent(this, MenuActivity::class.java)) }
 }

@@ -128,7 +128,7 @@ class LoginActivity : AppCompatActivity() {
             }
         )
 
-        Volley.newRequestQueue(this).add(request)
+        AppSingleton.getRequestQueue(this).add(request)
     }
     
     private fun navigateToSignUp() {

@@ -113,7 +113,7 @@ class ProfileActivity : AppCompatActivity() {
             { /* ignore */ }
         )
 
-        Volley.newRequestQueue(this).add(request)
+        AppSingleton.getRequestQueue(this).add(request)
     }
 
     private fun performSignOut() {

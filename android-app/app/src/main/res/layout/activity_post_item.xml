@@ -36,32 +36,7 @@
             android:orientation="vertical"
             android:padding="24dp">
 
-            <!-- Hidden fields to store user information -->
-            <EditText
-                android:id="@+id/userIdHiddenField"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:visibility="gone"
-                android:importantForAutofill="no"
-                android:inputType="none" />
-
-            <EditText
-                android:id="@+id/firstNameHiddenField"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:visibility="gone"
-                android:importantForAutofill="no"
-                android:inputType="none" />
-
-            <EditText
-                android:id="@+id/lastNameHiddenField"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:visibility="gone"
-                android:importantForAutofill="no"
-                android:inputType="none" />
-
-            <!-- Display automatically grabbed user info -->
+            <!-- Posting As Banner -->
             <TextView
                 android:id="@+id/postingAsTextView"
                 android:layout_width="match_parent"
@@ -73,6 +48,7 @@
                 android:background="#152E7D32"
                 android:layout_marginBottom="16dp"/>
 
+            <!-- Image Picker -->
             <ImageView
                 android:id="@+id/postImageView"
                 android:layout_width="match_parent"
@@ -95,6 +71,7 @@
                 android:layout_marginTop="16dp"
                 style="?attr/materialButtonOutlinedStyle"/>
 
+            <!-- Post Type -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -112,6 +89,7 @@
                 android:padding="12dp"
                 android:background="@drawable/edittext_background"/>
 
+            <!-- Category -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -129,6 +107,7 @@
                 android:padding="12dp"
                 android:background="@drawable/edittext_background"/>
 
+            <!-- Location -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -146,6 +125,31 @@
                 android:padding="12dp"
                 android:background="@drawable/edittext_background"/>
 
+            <!-- Date Lost/Found -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date Lost/Found"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/dateLostFoundEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Select date..."
+                android:padding="16dp"
+                android:background="@drawable/edittext_background"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_time"
+                android:drawableTint="@color/phinma_dark_green"
+                android:layout_marginTop="8dp"/>
+
+            <!-- Item Name -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -165,14 +169,51 @@
                 android:inputType="textCapSentences"
                 android:layout_marginTop="8dp"/>
 
+            <!-- Contact Number -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Description"
+                android:text="Contact Number (Optional)"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:layout_marginTop="24dp"/>
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/contactNumberEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="e.g. 0917-123-4567"
+                android:padding="16dp"
+                android:background="@drawable/edittext_background"
+                android:inputType="phone"
+                android:layout_marginTop="8dp"/>
+
+            <!-- Description -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="24dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Add Description"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/descriptionCharCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0/500"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"/>
+
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/descriptionEditText"
@@ -183,7 +224,7 @@
                 android:padding="16dp"
                 android:background="@drawable/edittext_background"
                 android:inputType="textMultiLine"
-                android:layout_marginTop="12dp"/>
+                android:layout_marginTop="8dp"/>
 
             <Button
                 android:id="@+id/postButton"

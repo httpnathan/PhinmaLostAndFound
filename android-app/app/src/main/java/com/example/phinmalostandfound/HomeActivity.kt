@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -12,9 +13,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 import org.json.JSONObject
@@ -25,6 +26,8 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var searchCardView: CardView
     private lateinit var filterButton: MaterialButton
     private lateinit var postsRecyclerView: RecyclerView
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+    private lateinit var loadingProgressBar: ProgressBar
     private lateinit var emptyPostsTextView: TextView
     private lateinit var bottomNavigation: BottomNavigationView
 
@@ -52,37 +55,38 @@ class HomeActivity : AppCompatActivity() {
         notificationIcon = findViewById(R.id.notificationIcon)
         searchCardView = findViewById(R.id.searchCardView)
         filterButton = findViewById(R.id.filterButton)
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
         postsRecyclerView = findViewById(R.id.postsRecyclerView)
+        loadingProgressBar = findViewById(R.id.loadingProgressBar)
         emptyPostsTextView = findViewById(R.id.emptyPostsTextView)
         bottomNavigation = findViewById(R.id.bottomNavigation)
     }
 
     private fun loadPosts() {
-        val url = ApiConfig.GET_ALL_POSTS
+        if (!swipeRefreshLayout.isRefreshing) {
+            loadingProgressBar.visibility = View.VISIBLE
+        }
 
         val request = StringRequest(
-            Request.Method.GET, url,
+            Request.Method.GET, ApiConfig.GET_ALL_POSTS,
             { response ->
+                loadingProgressBar.visibility = View.GONE
+                swipeRefreshLayout.isRefreshing = false
                 Log.d("HomeActivity", "Raw Response: $response")
                 try {
-                    // Strip any PHP warnings/notices before the JSON object
                     val jsonStartIndex = response.indexOf("{")
                     if (jsonStartIndex == -1) {
                         Log.e("HomeActivity", "No JSON object found in response: $response")
-                        Toast.makeText(this, "Invalid server response. Check Logcat.", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Invalid server response.", Toast.LENGTH_LONG).show()
                         return@StringRequest
                     }
 
                     val cleanJson = response.substring(jsonStartIndex)
-                    Log.d("HomeActivity", "Cleaned JSON: $cleanJson")
-
                     val jsonResponse = JSONObject(cleanJson)
                     val success = jsonResponse.optBoolean("success", false)
 
                     if (success) {
-                        val postsJson = jsonResponse.optJSONArray("posts")
-                        if (postsJson == null) {
-                            Log.e("HomeActivity", "No 'posts' array in response: $cleanJson")
+                        val postsJson = jsonResponse.optJSONArray("posts") ?: run {
                             Toast.makeText(this, "Unexpected response structure.", Toast.LENGTH_SHORT).show()
                             return@StringRequest
                         }
@@ -91,7 +95,7 @@ class HomeActivity : AppCompatActivity() {
                         for (i in 0 until postsJson.length()) {
                             try {
                                 val postObj = postsJson.getJSONObject(i)
-                                val post = Post(
+                                postsList.add(Post(
                                     postId = postObj.optInt("post_id", 0),
                                     userId = postObj.optInt("user_id", 0),
                                     postType = postObj.optString("post_type", "unknown"),
@@ -108,34 +112,31 @@ class HomeActivity : AppCompatActivity() {
                                     createdAt = postObj.optString("created_at", ""),
                                     updatedAt = postObj.optString("updated_at", ""),
                                     postedBy = postObj.optString("posted_by", "Anonymous")
-                                )
-                                postsList.add(post)
+                                ))
                             } catch (e: Exception) {
                                 Log.e("HomeActivity", "Error parsing post at index $i", e)
-                                // Skip malformed post and continue
                             }
                         }
 
                         allPosts = postsList
                         refreshPosts()
                     } else {
-                        val message = jsonResponse.optString("message", "Failed to load posts")
-                        Log.e("HomeActivity", "Server returned failure: $message")
-                        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, jsonResponse.optString("message", "Failed to load posts"), Toast.LENGTH_SHORT).show()
                     }
                 } catch (e: Exception) {
-                    Log.e("HomeActivity", "JSON parsing exception: ${e.message}\nRaw response: $response", e)
-                    Toast.makeText(this, "Response format error. Check Logcat.", Toast.LENGTH_LONG).show()
+                    Log.e("HomeActivity", "JSON parsing exception", e)
+                    Toast.makeText(this, "Response format error.", Toast.LENGTH_LONG).show()
                 }
             },
             { error ->
-                val responseBody = error.networkResponse?.data?.let { String(it) } ?: "No details"
-                Log.e("HomeActivity", "Network error. Body: $responseBody", error)
-                Toast.makeText(this, "Network error: ${error.message}", Toast.LENGTH_SHORT).show()
+                loadingProgressBar.visibility = View.GONE
+                swipeRefreshLayout.isRefreshing = false
+                Log.e("HomeActivity", "Network error", error)
+                Toast.makeText(this, "Network error: check your connection", Toast.LENGTH_SHORT).show()
             }
         )
 
-        Volley.newRequestQueue(this).add(request)
+        AppSingleton.getRequestQueue(this).add(request)
     }
 
     private fun setupRecyclerView() {
@@ -202,19 +203,21 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() {
-        // Notification icon click
         notificationIcon.setOnClickListener {
-            // TODO: Open notifications
+            Toast.makeText(this, "Notifications coming soon", Toast.LENGTH_SHORT).show()
         }
 
-        // Search bar click - navigate to search activity
         searchCardView.setOnClickListener {
             navigateToSearch()
         }
 
-        // Filter button click - show filter dialog
         filterButton.setOnClickListener {
             showFilterDialog()
+        }
+
+        swipeRefreshLayout.setColorSchemeResources(R.color.phinma_dark_green)
+        swipeRefreshLayout.setOnRefreshListener {
+            loadPosts()
         }
     }
 

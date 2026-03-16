@@ -129,7 +129,7 @@ class PrivateMessageActivity : AppCompatActivity() {
             }
         )
 
-        Volley.newRequestQueue(this).add(request)
+        AppSingleton.getRequestQueue(this).add(request)
     }
 
     private fun sendMessage() {
@@ -159,7 +159,7 @@ class PrivateMessageActivity : AppCompatActivity() {
             }
         )
 
-        Volley.newRequestQueue(this).add(request)
+        AppSingleton.getRequestQueue(this).add(request)
     }
 
     private fun markMessagesRead(otherId: String) {
@@ -173,6 +173,6 @@ class PrivateMessageActivity : AppCompatActivity() {
             { /* silent */ }, { /* silent */ }
         )
 
-        Volley.newRequestQueue(this).add(request)
+        AppSingleton.getRequestQueue(this).add(request)
     }
 }
