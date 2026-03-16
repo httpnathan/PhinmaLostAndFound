@@ -18,8 +18,12 @@ $action = isset($_GET['action']) ? $_GET['action'] : '';
 // CREATE NEW POST
 // ============================================================================
 if ($action === 'create' && $request_method === 'POST') {
-    // getJsonInput() handles both JSON and $_POST
-    $data = getJsonInput();
+    // Merge all input sources: JSON body, $_POST (multipart fields), and $_GET (URL params).
+    // getJsonInput() alone misses $_GET, which is where user_id lands when appended to the URL.
+    $json_body = json_decode(file_get_contents('php://input'), true) ?? [];
+    $data = array_merge($json_body, $_POST, $_GET);
+    // Remove routing params so they don't interfere with validation
+    unset($data['action']);
     
     $required_fields = ['user_id', 'post_type', 'item_name', 'description'];
     validateRequired($data, $required_fields);

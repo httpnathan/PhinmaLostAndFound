@@ -28,10 +28,12 @@ class PostItemActivity : AppCompatActivity() {
     private lateinit var locationSpinner: Spinner
     private lateinit var postTypeSpinner: Spinner
     private lateinit var bottomNavigation: BottomNavigationView
-    private lateinit var userIdHiddenField: EditText
-    private lateinit var firstNameHiddenField: EditText
-    private lateinit var lastNameHiddenField: EditText
     private lateinit var postingAsTextView: TextView
+
+    // User data read directly from SharedPreferences — no hidden EditText needed
+    private var currentUserId: Int = -1
+    private var currentFirstName: String = ""
+    private var currentLastName: String = ""
 
     private var selectedImageUri: Uri? = null
     private val PICK_IMAGE_REQUEST = 1
@@ -41,21 +43,25 @@ class PostItemActivity : AppCompatActivity() {
         setContentView(R.layout.activity_post_item)
 
         initializeViews()
+        loadUserSession()
         setupSpinners()
         setupBottomNavigation()
         setupClickListeners()
-        
-        // Populate hidden fields from SharedPreferences
+    }
+
+    private fun loadUserSession() {
         val sharedPreferences = getSharedPreferences("PhinmaLostAndFound", Context.MODE_PRIVATE)
-        val userId = sharedPreferences.getInt("userId", -1)
-        val firstName = sharedPreferences.getString("userFirstName", "")
-        val lastName = sharedPreferences.getString("userLastName", "")
-        
-        if (userId != -1) {
-            userIdHiddenField.setText(userId.toString())
-            firstNameHiddenField.setText(firstName)
-            lastNameHiddenField.setText(lastName)
-            postingAsTextView.text = "Posting as: $firstName $lastName"
+        currentUserId = sharedPreferences.getInt("userId", -1)
+        currentFirstName = sharedPreferences.getString("userFirstName", "") ?: ""
+        currentLastName = sharedPreferences.getString("userLastName", "") ?: ""
+
+        if (currentUserId != -1) {
+            postingAsTextView.text = "Posting as: $currentFirstName $currentLastName"
+        } else {
+            // No valid session, redirect to login
+            Toast.makeText(this, "Session expired. Please login again.", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
     }
 
@@ -68,9 +74,6 @@ class PostItemActivity : AppCompatActivity() {
         locationSpinner = findViewById(R.id.locationSpinner)
         postTypeSpinner = findViewById(R.id.postTypeSpinner)
         bottomNavigation = findViewById(R.id.bottomNavigation)
-        userIdHiddenField = findViewById(R.id.userIdHiddenField)
-        firstNameHiddenField = findViewById(R.id.firstNameHiddenField)
-        lastNameHiddenField = findViewById(R.id.lastNameHiddenField)
         postingAsTextView = findViewById(R.id.postingAsTextView)
     }
 
@@ -123,16 +126,20 @@ class PostItemActivity : AppCompatActivity() {
         val category = categorySpinner.selectedItem.toString()
         val location = locationSpinner.selectedItem.toString()
         val postType = postTypeSpinner.selectedItem.toString().lowercase()
-        val userIdText = userIdHiddenField.text.toString()
-        val firstName = firstNameHiddenField.text.toString()
-        val lastName = lastNameHiddenField.text.toString()
+
+        // Always read fresh from SharedPreferences — guarantees user_id is valid
+        val sharedPreferences = getSharedPreferences("PhinmaLostAndFound", Context.MODE_PRIVATE)
+        val userId = sharedPreferences.getInt("userId", -1)
+        val firstName = sharedPreferences.getString("userFirstName", "") ?: ""
+        val lastName = sharedPreferences.getString("userLastName", "") ?: ""
+        val userIdText = userId.toString()
 
         if (description.isEmpty()) {
             Toast.makeText(this, "Please enter a description", Toast.LENGTH_SHORT).show()
             return
         }
 
-        if (userIdText.isEmpty() || userIdText == "-1") {
+        if (userId == -1) {
             Toast.makeText(this, "Session expired. Please login again.", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
@@ -169,7 +176,7 @@ class PostItemActivity : AppCompatActivity() {
                     val jsonResponse = JSONObject(responseString)
                     val success = jsonResponse.optBoolean("success", false)
                     val message = jsonResponse.optString("message", "Unknown error")
-                    
+
                     if (success) {
                         Toast.makeText(this, "Post Created Successfully!", Toast.LENGTH_LONG).show()
                         navigateToHome()
@@ -194,7 +201,7 @@ class PostItemActivity : AppCompatActivity() {
                     "user_id" to userIdText,
                     "first_name" to firstName,
                     "last_name" to lastName,
-                    "post_type" to postType, 
+                    "post_type" to postType,
                     "item_name" to if (description.length > 20) description.substring(0, 20) else description,
                     "description" to description,
                     "category" to category,

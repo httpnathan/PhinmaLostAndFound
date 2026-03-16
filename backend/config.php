@@ -24,9 +24,10 @@ define('DB_CHARSET', 'utf8mb4');
 define('API_KEY', 'phinma_secret_key_2024');
 define('UPLOAD_DIR', 'uploads/');
 
-// Error reporting - set to 0 in production
+// Errors logged to server, never printed — printing would corrupt JSON output
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
 
 // CORS Headers
 header('Access-Control-Allow-Origin: *');

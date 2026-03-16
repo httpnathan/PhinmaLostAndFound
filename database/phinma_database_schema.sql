@@ -1,314 +1,363 @@
--- ============================================================================
--- PHINMA LOST AND FOUND - MariaDB Database Schema
--- ============================================================================
--- This is a TEMPLATE database structure
--- You can easily add/remove tables and fields as needed
--- Comments indicate where and how to modify
--- ============================================================================
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Mar 10, 2026 at 08:50 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
--- Create Database
-CREATE DATABASE IF NOT EXISTS phinma_lost_found;
-USE phinma_lost_found;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
--- ============================================================================
--- USERS TABLE
--- ============================================================================
--- This table stores user account information
--- 🔧 TO ADD NEW USER FIELDS: Add columns below (example: phone_number VARCHAR(20))
--- 🔧 TO REMOVE FIELDS: Delete the column line you don't need
 
-CREATE TABLE IF NOT EXISTS users (
-    -- Primary Key
-    user_id INT AUTO_INCREMENT PRIMARY KEY,
-    
-    -- Login Credentials
-    email VARCHAR(255) UNIQUE NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,  -- Password is hashed for security
-    
-    -- User Information
-    first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
-    
-    -- 🔧 ADD YOUR CUSTOM USER FIELDS HERE:
-    -- student_id VARCHAR(50),
-    -- department VARCHAR(100),
-    -- year_level INT,
-    -- contact_number VARCHAR(20),
-    
-    -- Account Status
-    is_active BOOLEAN DEFAULT TRUE,
-    is_verified BOOLEAN DEFAULT FALSE,
-    
-    -- Timestamps
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    last_login TIMESTAMP NULL,
-    
-    -- Indexes for faster queries
-    INDEX idx_email (email),
-    INDEX idx_created_at (created_at)
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `phinma_lost_found`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `admin_id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password_hash` varchar(255) NOT NULL,
+  `full_name` varchar(200) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `is_active` tinyint(1) DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `last_login` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================================================================
--- POSTS TABLE
--- ============================================================================
--- This table stores lost and found item posts
--- 🔧 TO ADD POST FIELDS: Add columns below (example: reward_amount DECIMAL(10,2))
--- 🔧 TO REMOVE FIELDS: Delete the column line
+--
+-- Dumping data for table `admins`
+--
 
-CREATE TABLE IF NOT EXISTS posts (
-    -- Primary Key
-    post_id INT AUTO_INCREMENT PRIMARY KEY,
-    
-    -- Foreign Key (links to users table)
-    user_id INT NOT NULL,
-    
-    -- Post Type
-    post_type ENUM('lost', 'found') NOT NULL,  -- 🔧 Can add more types like 'claimed'
-    
-    -- Item Information
-    item_name VARCHAR(255) NOT NULL,
-    description TEXT NOT NULL,
-    category VARCHAR(100),  -- 🔧 e.g., 'Electronics', 'Documents', 'Accessories'
-    
-    -- 🔧 ADD YOUR CUSTOM POST FIELDS HERE:
-    -- color VARCHAR(50),
-    -- brand VARCHAR(100),
-    -- size VARCHAR(50),
-    -- reward_amount DECIMAL(10,2),
-    
-    -- Location Information
-    location_found VARCHAR(255),  -- Where item was lost/found
-    building VARCHAR(100),
-    floor_number VARCHAR(20),
-    
-    -- Media
-    image_url VARCHAR(500),  -- Path to uploaded image
-    
-    -- Status
-    status ENUM('active', 'claimed', 'expired', 'deleted') DEFAULT 'active',
-    
-    -- Timestamps
-    date_lost_found DATE,  -- When item was lost/found
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    
-    -- Foreign Key Constraint
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-    
-    -- Indexes
-    INDEX idx_user_id (user_id),
-    INDEX idx_post_type (post_type),
-    INDEX idx_status (status),
-    INDEX idx_created_at (created_at),
-    INDEX idx_category (category)
+INSERT INTO `admins` (`admin_id`, `username`, `password_hash`, `full_name`, `email`, `is_active`, `created_at`, `last_login`) VALUES
+(1, 'admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Admin User', 'admin@phinma.edu.ph', 1, '2026-02-13 02:26:45', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `campus_locations`
+--
+
+CREATE TABLE `campus_locations` (
+  `location_id` int(11) NOT NULL,
+  `location_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `campus_locations`
+--
+
+INSERT INTO `campus_locations` (`location_id`, `location_name`) VALUES
+(7, 'Auditorium'),
+(3, 'Cafeteria'),
+(6, 'Computer Laboratory'),
+(4, 'Gymnasium'),
+(2, 'Library'),
+(1, 'Main Building'),
+(5, 'Parking Area');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `category_id` int(11) NOT NULL,
+  `category_name` varchar(100) NOT NULL,
+  `category_icon` varchar(100) DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================================================================
--- MESSAGES TABLE
--- ============================================================================
--- This table stores chat messages between users
--- 🔧 TO ADD MESSAGE FIELDS: Add columns below
+--
+-- Dumping data for table `categories`
+--
 
-CREATE TABLE IF NOT EXISTS messages (
-    -- Primary Key
-    message_id INT AUTO_INCREMENT PRIMARY KEY,
-    
-    -- Foreign Keys
-    sender_id INT NOT NULL,
-    receiver_id INT NOT NULL,
-    
-    -- Message Content
-    message_text TEXT NOT NULL,
-    
-    -- 🔧 ADD YOUR CUSTOM MESSAGE FIELDS HERE:
-    -- attachment_url VARCHAR(500),
-    -- message_type ENUM('text', 'image', 'file'),
-    
-    -- Status
-    is_read BOOLEAN DEFAULT FALSE,
-    
-    -- Timestamps
-    sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    read_at TIMESTAMP NULL,
-    
-    -- Foreign Key Constraints
-    FOREIGN KEY (sender_id) REFERENCES users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (receiver_id) REFERENCES users(user_id) ON DELETE CASCADE,
-    
-    -- Indexes
-    INDEX idx_sender_receiver (sender_id, receiver_id),
-    INDEX idx_sent_at (sent_at),
-    INDEX idx_is_read (is_read)
+INSERT INTO `categories` (`category_id`, `category_name`, `category_icon`, `is_active`, `created_at`) VALUES
+(1, 'Electronics', 'ic_phone', 1, '2026-02-13 02:26:45'),
+(2, 'Documents', 'ic_document', 1, '2026-02-13 02:26:45'),
+(3, 'Accessories', 'ic_accessory', 1, '2026-02-13 02:26:45'),
+(4, 'Clothing', 'ic_shirt', 1, '2026-02-13 02:26:45'),
+(5, 'Books', 'ic_book', 1, '2026-02-13 02:26:45'),
+(6, 'Keys', 'ic_key', 1, '2026-02-13 02:26:45'),
+(7, 'Others', 'ic_more', 1, '2026-02-13 02:26:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `message_id` int(11) NOT NULL,
+  `sender_id` int(11) NOT NULL,
+  `receiver_id` int(11) NOT NULL,
+  `message_text` text NOT NULL,
+  `is_read` tinyint(1) DEFAULT 0,
+  `sent_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `read_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================================================================
--- ADMINS TABLE
--- ============================================================================
--- This table stores admin/moderator accounts
--- 🔧 TO ADD ADMIN FIELDS: Add columns below
+-- --------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS admins (
-    -- Primary Key
-    admin_id INT AUTO_INCREMENT PRIMARY KEY,
-    
-    -- Login Credentials
-    username VARCHAR(100) UNIQUE NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
-    
-    -- Admin Information
-    full_name VARCHAR(200) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    
-    -- 🔧 ADD YOUR CUSTOM ADMIN FIELDS HERE:
-    -- role ENUM('super_admin', 'moderator', 'support'),
-    -- department VARCHAR(100),
-    -- permissions JSON,
-    
-    -- Status
-    is_active BOOLEAN DEFAULT TRUE,
-    
-    -- Timestamps
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    last_login TIMESTAMP NULL,
-    
-    -- Indexes
-    INDEX idx_username (username),
-    INDEX idx_email (email)
+--
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `notification_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `notification_type` varchar(50) DEFAULT NULL,
+  `related_post_id` int(11) DEFAULT NULL,
+  `is_read` tinyint(1) DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================================================================
--- NOTIFICATIONS TABLE (OPTIONAL)
--- ============================================================================
--- This table stores user notifications
--- 🔧 YOU CAN DELETE THIS ENTIRE TABLE if you don't need notifications
+-- --------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS notifications (
-    -- Primary Key
-    notification_id INT AUTO_INCREMENT PRIMARY KEY,
-    
-    -- Foreign Key
-    user_id INT NOT NULL,
-    
-    -- Notification Content
-    title VARCHAR(255) NOT NULL,
-    message TEXT NOT NULL,
-    notification_type VARCHAR(50),  -- 🔧 e.g., 'match_found', 'message', 'claim'
-    
-    -- Related Data
-    related_post_id INT NULL,  -- Link to related post if applicable
-    
-    -- Status
-    is_read BOOLEAN DEFAULT FALSE,
-    
-    -- Timestamps
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    
-    -- Foreign Key Constraints
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (related_post_id) REFERENCES posts(post_id) ON DELETE SET NULL,
-    
-    -- Indexes
-    INDEX idx_user_id (user_id),
-    INDEX idx_is_read (is_read),
-    INDEX idx_created_at (created_at)
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `post_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `post_type` enum('lost','found') NOT NULL,
+  `item_name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `contact_number` varchar(20) DEFAULT NULL,
+  `category` varchar(100) DEFAULT NULL,
+  `location_found` varchar(255) DEFAULT NULL,
+  `building` varchar(100) DEFAULT NULL,
+  `floor_number` varchar(20) DEFAULT NULL,
+  `status` enum('active','claimed','resolved','archived') NOT NULL DEFAULT 'active',
+  `date_lost_found` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================================================================
--- CATEGORIES TABLE (OPTIONAL)
--- ============================================================================
--- This table stores predefined categories for items
--- 🔧 YOU CAN DELETE THIS if you want to use free-text categories
+-- --------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS categories (
-    -- Primary Key
-    category_id INT AUTO_INCREMENT PRIMARY KEY,
-    
-    -- Category Information
-    category_name VARCHAR(100) UNIQUE NOT NULL,
-    category_icon VARCHAR(100),  -- Icon name or URL
-    
-    -- 🔧 ADD YOUR CUSTOM CATEGORY FIELDS HERE:
-    -- parent_category_id INT,  -- For subcategories
-    -- display_order INT,
-    
-    -- Status
-    is_active BOOLEAN DEFAULT TRUE,
-    
-    -- Timestamps
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+--
+-- Table structure for table `post_images`
+--
+
+CREATE TABLE `post_images` (
+  `image_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `image_url` varchar(255) NOT NULL,
+  `uploaded_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password_hash` varchar(255) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `is_active` tinyint(1) DEFAULT 1,
+  `is_verified` tinyint(1) DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `last_login` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================================================================
--- SAMPLE DATA (FOR TESTING)
--- ============================================================================
--- 🔧 REMOVE THIS SECTION in production
--- This creates sample data for testing
+--
+-- Dumping data for table `users`
+--
 
--- Sample Admin Account
--- Username: admin, Password: admin123
-INSERT INTO admins (username, password_hash, full_name, email) VALUES
-('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Admin User', 'admin@phinma.edu.ph');
+INSERT INTO `users` (`user_id`, `email`, `password_hash`, `first_name`, `last_name`, `is_active`, `is_verified`, `created_at`, `updated_at`, `last_login`) VALUES
+(1, 'user@test.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Test', 'User', 1, 1, '2026-02-13 02:26:45', '2026-02-13 02:26:45', NULL),
+(2, 'cobisaya@phinmaed.com', '$2y$10$v.u2VQSHJJ04jPNMvAgFzu/1LDHmY/d0XIPWzbOxpYHYbqfKYjOrm', 'Cobar', 'Bisaya', 1, 0, '2026-02-13 03:39:36', '2026-02-16 04:54:26', '2026-02-16 04:54:26'),
+(3, 'Cobar@phinmaed.com', '$2y$10$CKBBn3fQjSvMh6RaUY6YQOPEWlbKp.uMvs4AfjMXvaccvUdjxPfSK', 'Tang', 'zinamo', 1, 0, '2026-02-13 05:21:13', '2026-02-13 05:21:13', NULL),
+(4, 'reyvisperas30@gmail.com', '$2y$10$V2NU5jNJ2gW1l9aN4XiQgunGDxFOyb5lmFJPbxsz90PBe6kEp2aFG', 'Reynard', 'Visperas', 1, 0, '2026-02-13 05:23:13', '2026-02-13 05:23:13', NULL),
+(5, 'skibidi@phinmaed.com', '$2y$10$Op0jMV0c966qJiyMUPT3auwwKOopK.TH/7zjs7/Jmi1cZxlDbdOmS', 'skib', 'idi', 1, 0, '2026-03-10 05:26:02', '2026-03-10 07:37:44', '2026-03-10 07:37:44'),
+(6, 'nega@phinmaed.com', '$2y$10$3cEgZ6BJsNz.YfsBN5BbWO49bW4wIevyFYrjJqTwJFsNiXkFf2dEe', 'utdyiiyf', 'kjgouiyf', 1, 0, '2026-03-10 06:17:15', '2026-03-10 06:17:15', NULL);
 
--- Sample User Account
--- Email: user@test.com, Password: 1234
-INSERT INTO users (email, password_hash, first_name, last_name, is_verified) VALUES
-('user@test.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Test', 'User', TRUE);
+--
+-- Indexes for dumped tables
+--
 
--- Sample Categories
-INSERT INTO categories (category_name, category_icon) VALUES
-('Electronics', 'ic_phone'),
-('Documents', 'ic_document'),
-('Accessories', 'ic_accessory'),
-('Clothing', 'ic_shirt'),
-('Books', 'ic_book'),
-('Keys', 'ic_key'),
-('Others', 'ic_more');
+--
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`admin_id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `idx_username` (`username`),
+  ADD KEY `idx_email` (`email`);
 
--- ============================================================================
--- USEFUL QUERIES (FOR REFERENCE)
--- ============================================================================
+--
+-- Indexes for table `campus_locations`
+--
+ALTER TABLE `campus_locations`
+  ADD PRIMARY KEY (`location_id`),
+  ADD UNIQUE KEY `location_name` (`location_name`);
 
--- Get all active posts with user information
--- SELECT p.*, u.first_name, u.last_name, u.email 
--- FROM posts p 
--- JOIN users u ON p.user_id = u.user_id 
--- WHERE p.status = 'active' 
--- ORDER BY p.created_at DESC;
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`category_id`),
+  ADD UNIQUE KEY `category_name` (`category_name`);
 
--- Get unread messages for a user
--- SELECT m.*, u.first_name, u.last_name 
--- FROM messages m 
--- JOIN users u ON m.sender_id = u.user_id 
--- WHERE m.receiver_id = ? AND m.is_read = FALSE 
--- ORDER BY m.sent_at DESC;
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`message_id`),
+  ADD KEY `receiver_id` (`receiver_id`),
+  ADD KEY `idx_sender_receiver` (`sender_id`,`receiver_id`),
+  ADD KEY `idx_sent_at` (`sent_at`),
+  ADD KEY `idx_is_read` (`is_read`);
 
--- Search posts by keyword
--- SELECT * FROM posts 
--- WHERE (item_name LIKE '%keyword%' OR description LIKE '%keyword%') 
--- AND status = 'active' 
--- ORDER BY created_at DESC;
+--
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`notification_id`),
+  ADD KEY `related_post_id` (`related_post_id`),
+  ADD KEY `idx_user_id` (`user_id`),
+  ADD KEY `idx_is_read` (`is_read`),
+  ADD KEY `idx_created_at` (`created_at`);
 
--- ============================================================================
--- MODIFICATION GUIDE
--- ============================================================================
+--
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`post_id`),
+  ADD KEY `idx_user_id` (`user_id`),
+  ADD KEY `idx_post_type` (`post_type`),
+  ADD KEY `idx_status` (`status`),
+  ADD KEY `idx_created_at` (`created_at`),
+  ADD KEY `idx_category` (`category`),
+  ADD KEY `idx_posts_category` (`category`),
+  ADD KEY `idx_posts_status` (`status`),
+  ADD KEY `idx_posts_created_at` (`created_at`),
+  ADD KEY `idx_posts_user_id` (`user_id`);
 
--- 📝 HOW TO ADD A NEW TABLE:
--- 1. Copy the template structure from an existing table
--- 2. Change the table name
--- 3. Add your custom fields
--- 4. Add appropriate indexes
--- 5. Add foreign keys if needed
+--
+-- Indexes for table `post_images`
+--
+ALTER TABLE `post_images`
+  ADD PRIMARY KEY (`image_id`),
+  ADD KEY `fk_post_images_post` (`post_id`);
 
--- 📝 HOW TO ADD A NEW FIELD TO EXISTING TABLE:
--- ALTER TABLE table_name ADD COLUMN new_field_name VARCHAR(100);
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `idx_email` (`email`),
+  ADD KEY `idx_created_at` (`created_at`);
 
--- 📝 HOW TO REMOVE A FIELD:
--- ALTER TABLE table_name DROP COLUMN field_name;
+--
+-- AUTO_INCREMENT for dumped tables
+--
 
--- 📝 HOW TO CHANGE A FIELD TYPE:
--- ALTER TABLE table_name MODIFY COLUMN field_name NEW_TYPE;
+--
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
--- ============================================================================
--- END OF SCHEMA
--- ============================================================================
+--
+-- AUTO_INCREMENT for table `campus_locations`
+--
+ALTER TABLE `campus_locations`
+  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `post_images`
+--
+ALTER TABLE `post_images`
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`sender_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`receiver_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD CONSTRAINT `notifications_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `notifications_ibfk_2` FOREIGN KEY (`related_post_id`) REFERENCES `posts` (`post_id`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `posts`
+--
+ALTER TABLE `posts`
+  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `post_images`
+--
+ALTER TABLE `post_images`
+  ADD CONSTRAINT `fk_post_images_post` FOREIGN KEY (`post_id`) REFERENCES `posts` (`post_id`) ON DELETE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
