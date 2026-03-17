@@ -5,38 +5,49 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
 import org.json.JSONObject
 import androidx.appcompat.app.AppCompatActivity
 
 class LoginActivity : AppCompatActivity() {
-    
+
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
     private lateinit var signUpTextView: TextView
-    
+    private lateinit var rememberMeCheckBox: CheckBox
+
+    private val PREFS = "PhinmaLostAndFound"
+    private val KEY_SAVED_EMAIL = "savedEmail"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        
+
         initializeViews()
         setupTextWatchers()
         setupClickListeners()
     }
-    
+
     private fun initializeViews() {
         emailEditText = findViewById(R.id.emailEditText)
         passwordEditText = findViewById(R.id.passwordEditText)
         loginButton = findViewById(R.id.loginButton)
         signUpTextView = findViewById(R.id.signUpTextView)
-        
-        // Initial check to set button state
+        rememberMeCheckBox = findViewById(R.id.rememberMeCheckBox)
+
+        // Pre-fill saved email if available
+        val savedEmail = getSharedPreferences(PREFS, MODE_PRIVATE).getString(KEY_SAVED_EMAIL, "") ?: ""
+        if (savedEmail.isNotEmpty()) {
+            emailEditText.setText(savedEmail)
+            rememberMeCheckBox.isChecked = true
+        }
+
         updateLoginButtonState()
     }
 
@@ -58,7 +69,7 @@ class LoginActivity : AppCompatActivity() {
         val password = passwordEditText.text.toString().trim()
         loginButton.isEnabled = email.isNotEmpty() && password.isNotEmpty()
     }
-    
+
     private fun setupClickListeners() {
         loginButton.setOnClickListener {
             val email = emailEditText.text.toString().trim()
@@ -72,9 +83,9 @@ class LoginActivity : AppCompatActivity() {
 
             performLogin(email, password)
         }
-        
+
         signUpTextView.setOnClickListener {
-            navigateToSignUp()
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
     }
 
@@ -82,15 +93,14 @@ class LoginActivity : AppCompatActivity() {
         loginButton.isEnabled = false
         loginButton.text = "Signing in..."
 
-        val url = ApiConfig.LOGIN
-
-        val jsonBody = JSONObject()
-        jsonBody.put("action", "login")
-        jsonBody.put("email", email)
-        jsonBody.put("password", password)
+        val jsonBody = JSONObject().apply {
+            put("action", "login")
+            put("email", email)
+            put("password", password)
+        }
 
         val request = JsonObjectRequest(
-            Request.Method.POST, url, jsonBody,
+            Request.Method.POST, ApiConfig.LOGIN, jsonBody,
             { response ->
                 val success = response.getBoolean("success")
                 val message = response.getString("message")
@@ -101,18 +111,21 @@ class LoginActivity : AppCompatActivity() {
                     val firstName = data.getString("first_name")
                     val lastName = data.getString("last_name")
 
-                    // Save login state
-                    val sharedPreferences = getSharedPreferences("PhinmaLostAndFound", MODE_PRIVATE)
-                    sharedPreferences.edit().apply {
+                    getSharedPreferences(PREFS, MODE_PRIVATE).edit().apply {
                         putBoolean("isLoggedIn", true)
                         putInt("userId", userId)
                         putString("userEmail", email)
                         putString("userFirstName", firstName)
                         putString("userLastName", lastName)
+                        // Remember Me: save/clear email
+                        if (rememberMeCheckBox.isChecked) {
+                            putString(KEY_SAVED_EMAIL, email)
+                        } else {
+                            remove(KEY_SAVED_EMAIL)
+                        }
                         apply()
                     }
 
-                    // Navigate to home
                     startActivity(Intent(this, HomeActivity::class.java))
                     finish()
                 } else {
@@ -129,10 +142,5 @@ class LoginActivity : AppCompatActivity() {
         )
 
         AppSingleton.getRequestQueue(this).add(request)
-    }
-    
-    private fun navigateToSignUp() {
-        val intent = Intent(this, SignUpActivity::class.java)
-        startActivity(intent)
     }
 }

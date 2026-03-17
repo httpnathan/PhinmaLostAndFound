@@ -5,54 +5,81 @@
     android:layout_height="match_parent"
     android:background="@color/phinma_dark_green">
 
-    <ImageView
-        android:id="@+id/logoImageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/ic_app_logo"
-        android:contentDescription="PHINMA Lost and Found Logo"
+    <!-- White circle card behind logo -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/logoCard"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        app:cardCornerRadius="80dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.4"/>
+        app:layout_constraintVertical_bias="0.38"/>
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_app_logo"
+        android:contentDescription="PHINMA Lost and Found Logo"
+        app:layout_constraintTop_toTopOf="@id/logoCard"
+        app:layout_constraintBottom_toBottomOf="@id/logoCard"
+        app:layout_constraintStart_toStartOf="@id/logoCard"
+        app:layout_constraintEnd_toEndOf="@id/logoCard"/>
 
     <TextView
         android:id="@+id/appNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PHINMA\nLost and Found"
-        android:textSize="28sp"
+        android:text="Lost &amp; Found"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:gravity="center"
-        android:lineSpacingExtra="4dp"
-        app:layout_constraintTop_toBottomOf="@id/logoImageView"
+        android:letterSpacing="0.04"
+        app:layout_constraintTop_toBottomOf="@id/logoCard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/taglineTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PHINMA University of Pangasinan"
+        android:textSize="13sp"
+        android:textColor="@color/white"
+        android:alpha="0.75"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/appNameTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="6dp"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/phinma_yellow"
-        app:layout_constraintTop_toBottomOf="@id/appNameTextView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginBottom="80dp"/>
 
     <TextView
         android:id="@+id/versionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="v1.0.0"
-        android:textSize="12sp"
+        android:textSize="11sp"
         android:textColor="@color/white"
-        android:alpha="0.7"
+        android:alpha="0.5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="32dp"/>
+        android:layout_marginBottom="28dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

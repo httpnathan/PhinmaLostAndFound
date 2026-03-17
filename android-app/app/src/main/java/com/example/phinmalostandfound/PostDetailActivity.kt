@@ -5,6 +5,7 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -18,7 +19,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.google.android.material.appbar.MaterialToolbar
 import org.json.JSONObject
 
-class PostDetailActivity : AppCompatActivity() {
+class PostDetailActivity : BaseActivity() {
 
     private lateinit var toolbar: MaterialToolbar
     private lateinit var imageViewPager: ViewPager2
@@ -32,8 +33,11 @@ class PostDetailActivity : AppCompatActivity() {
     private lateinit var lastSeenTime: TextView
     private lateinit var contactPerson: TextView
     private lateinit var contactButton: Button
+    private lateinit var callButton: Button
+    private lateinit var claimButton: Button
     private lateinit var shareButton: Button
     private lateinit var markResolvedButton: Button
+    private lateinit var deletePostButton: Button
 
     private var postOwnerId: Int = -1
     private var postOwnerName: String = ""
@@ -54,8 +58,11 @@ class PostDetailActivity : AppCompatActivity() {
         lastSeenTime = findViewById(R.id.lastSeenTime)
         contactPerson = findViewById(R.id.contactPerson)
         contactButton = findViewById(R.id.contactButton)
+        callButton = findViewById(R.id.callButton)
+        claimButton = findViewById(R.id.claimButton)
         shareButton = findViewById(R.id.shareButton)
         markResolvedButton = findViewById(R.id.markResolvedButton)
+        deletePostButton = findViewById(R.id.deletePostButton)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -76,37 +83,19 @@ class PostDetailActivity : AppCompatActivity() {
         val request = JsonObjectRequest(
             Request.Method.GET, url, null,
             { response ->
+                if (isFinishing || isDestroyed) return@JsonObjectRequest
                 try {
                     if (response.getBoolean("success")) {
-                        val postObj = response.getJSONObject("post")
-                        val post = Post(
-                            postId = postObj.getInt("post_id"),
-                            userId = postObj.getInt("user_id"),
-                            postType = postObj.getString("post_type"),
-                            itemName = postObj.getString("item_name"),
-                            description = postObj.getString("description"),
-                            category = postObj.getString("category"),
-                            locationFound = postObj.getString("location_found"),
-                            building = postObj.getString("building"),
-                            floorNumber = if (postObj.isNull("floor_number")) null else postObj.getString("floor_number"),
-                            status = postObj.getString("status"),
-                            dateLostFound = postObj.getString("date_lost_found"),
-                            contactNumber = if (postObj.isNull("contact_number")) null else postObj.getString("contact_number"),
-                            imageUrls = jsonArrayToList(postObj.getJSONArray("image_urls")),
-                            createdAt = postObj.getString("created_at"),
-                            updatedAt = postObj.getString("updated_at"),
-                            postedBy = postObj.getString("posted_by")
-                        )
-                        displayPostDetails(post)
+                        displayPostDetails(Post.fromJson(response.getJSONObject("post")))
                     } else {
                         Toast.makeText(this, response.optString("message", "Post not found"), Toast.LENGTH_SHORT).show()
                     }
                 } catch (e: Exception) {
-                    e.printStackTrace()
                     Toast.makeText(this, "Error parsing post details", Toast.LENGTH_SHORT).show()
                 }
             },
             { error ->
+                if (isFinishing || isDestroyed) return@JsonObjectRequest
                 Toast.makeText(this, "Network error: ${error.message}", Toast.LENGTH_SHORT).show()
             }
         )
@@ -146,33 +135,58 @@ class PostDetailActivity : AppCompatActivity() {
         val contactText = post.contactNumber?.takeIf { it.isNotEmpty() } ?: "Not Provided"
         contactPerson.text = contactText
 
-        // Tap contact number to copy to clipboard
+        // Tap contact number to copy; long-press also supported
         if (!post.contactNumber.isNullOrEmpty()) {
             contactPerson.setOnClickListener {
                 val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 clipboard.setPrimaryClip(ClipData.newPlainText("Contact", post.contactNumber))
                 Toast.makeText(this, "Contact number copied!", Toast.LENGTH_SHORT).show()
             }
+
+            // Call button
+            callButton.visibility = View.VISIBLE
+            callButton.setOnClickListener {
+                startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:${post.contactNumber}")))
+            }
         }
 
         postOwnerId = post.userId
         postOwnerName = post.postedBy
 
-        // Show "Mark Resolved" only to the post owner on active posts
         val currentUserId = getSharedPreferences("PhinmaLostAndFound", MODE_PRIVATE).getInt("userId", -1)
-        if (currentUserId != -1 && currentUserId == post.userId && post.status == "active") {
-            markResolvedButton.visibility = View.VISIBLE
-            markResolvedButton.setOnClickListener { confirmMarkResolved(post.postId) }
+        val isOwner = currentUserId != -1 && currentUserId == post.userId
+
+        if (isOwner) {
+            if (post.status == "active") {
+                markResolvedButton.visibility = View.VISIBLE
+                markResolvedButton.setOnClickListener { confirmMarkResolved(post.postId) }
+            }
+            deletePostButton.visibility = View.VISIBLE
+            deletePostButton.setOnClickListener { confirmDeletePost(post.postId) }
+        } else {
+            // Non-owner: show claim button on "found" posts
+            if (post.postType.lowercase() == "found" && post.status == "active") {
+                claimButton.visibility = View.VISIBLE
+                claimButton.setOnClickListener {
+                    val intent = Intent(this, PrivateMessageActivity::class.java)
+                    intent.putExtra("USER_ID", post.userId.toString())
+                    intent.putExtra("USER_NAME", post.postedBy)
+                    intent.putExtra("POST_TITLE", post.itemName)
+                    intent.putExtra("PREFILL_MESSAGE", "Hi, I think this item is mine: ${post.itemName}. ")
+                    intent.putExtra("SECURITY_QUESTION", post.securityQuestion)
+                    startActivity(intent)
+                }
+            }
         }
 
         // Share
         shareButton.setOnClickListener {
             val shareText = buildString {
-                append("📢 PHINMA Lost & Found\n\n")
+                append("PHINMA Lost & Found\n\n")
                 append("${post.postType.uppercase()}: ${post.itemName}\n")
-                append("📍 Location: ${post.locationFound}\n")
-                append("📅 Date: ${post.dateLostFound}\n")
-                if (!post.contactNumber.isNullOrEmpty()) append("📞 Contact: ${post.contactNumber}\n")
+                append("Location: ${post.locationFound}\n")
+                append("Date: ${post.dateLostFound}\n")
+                if (!post.contactNumber.isNullOrEmpty()) append("Contact: ${post.contactNumber}\n")
                 append("\n${post.description}")
             }
             startActivity(Intent.createChooser(
@@ -183,12 +197,13 @@ class PostDetailActivity : AppCompatActivity() {
             ))
         }
 
-        // Contact
+        // Contact (message)
         contactButton.setOnClickListener {
             val intent = Intent(this, PrivateMessageActivity::class.java)
             intent.putExtra("USER_ID", postOwnerId.toString())
             intent.putExtra("USER_NAME", postOwnerName)
             intent.putExtra("POST_TITLE", post.itemName)
+            intent.putExtra("SECURITY_QUESTION", post.securityQuestion)
             startActivity(intent)
         }
     }
@@ -223,6 +238,34 @@ class PostDetailActivity : AppCompatActivity() {
             }
         )
 
+        AppSingleton.getRequestQueue(this).add(request)
+    }
+
+    private fun confirmDeletePost(postId: Int) {
+        AlertDialog.Builder(this)
+            .setTitle("Delete Post")
+            .setMessage("Are you sure you want to delete this post? This cannot be undone.")
+            .setPositiveButton("Delete") { _, _ -> deletePost(postId) }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun deletePost(postId: Int) {
+        val url = ApiConfig.buildUrl(ApiConfig.DELETE_POST, "post_id" to postId.toString())
+        val request = JsonObjectRequest(
+            Request.Method.DELETE, url, null,
+            { response ->
+                if (response.optBoolean("success", false)) {
+                    Toast.makeText(this, "Post deleted", Toast.LENGTH_SHORT).show()
+                    finish()
+                } else {
+                    Toast.makeText(this, "Could not delete post", Toast.LENGTH_SHORT).show()
+                }
+            },
+            { error ->
+                Toast.makeText(this, "Network error: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        )
         AppSingleton.getRequestQueue(this).add(request)
     }
 }

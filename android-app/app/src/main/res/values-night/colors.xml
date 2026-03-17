@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- PHINMA Brand Colors (Dark Mode) -->
+    <color name="phinma_dark_green">#2E7D32</color>      <!-- Brighter for dark mode -->
+    <color name="phinma_green">#4CAF50</color>           <!-- Primary Variant -->
+    <color name="phinma_light_green">#81C784</color>     <!-- Light Green -->
+    <color name="phinma_yellow">#FFF176</color>          <!-- Accent: Yellow -->
+    <color name="phinma_gold">#FFD54F</color>            <!-- Accent Variant: Gold -->
+
+    <!-- Background Colors -->
+    <color name="background_light">#121212</color>       <!-- Dark background -->
+    <color name="background_white">#1E1E1E</color>        <!-- Dark surface -->
+    <color name="card_background">#2C2C2C</color>         <!-- Darker card backgrounds -->
+
+    <!-- Text Colors -->
+    <color name="text_primary">#E1E1E1</color>           <!-- Light text -->
+    <color name="text_secondary">#B0B0B0</color>         <!-- Gray text -->
+    <color name="text_hint">#757575</color>              <!-- Hint text -->
+    <color name="text_on_primary">#121212</color>        <!-- Dark text on green -->
+    <color name="text_on_accent">#121212</color>         <!-- Dark text on yellow -->
+
+    <!-- Legacy Support -->
+    <color name="black">#FFFFFFFF</color>                <!-- Invert black to white -->
+    <color name="white">#FF121212</color>                <!-- Invert white to black -->
+    <color name="green">#4CAF50</color>
+    <color name="gray">#B0B0B0</color>
+    <color name="light_gray">#2C2C2C</color>
+    <color name="red">#EF5350</color>
+</resources>

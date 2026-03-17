@@ -1,5 +1,6 @@
 package com.example.phinmalostandfound
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +21,8 @@ data class ChatItem(
 
 class ChatsAdapter(
     private val chats: List<ChatItem>,
-    private val onChatClick: (ChatItem) -> Unit
+    private val onChatClick: (ChatItem) -> Unit,
+    private val onChatLongClick: ((ChatItem) -> Unit)? = null
 ) : RecyclerView.Adapter<ChatsAdapter.ChatViewHolder>() {
 
     inner class ChatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -48,7 +50,14 @@ class ChatsAdapter(
             holder.unreadBadge.visibility = View.GONE
         }
 
+        holder.userName.setOnClickListener {
+            val intent = Intent(it.context, ProfileActivity::class.java)
+            intent.putExtra("USER_ID", chat.otherUserId.toInt())
+            it.context.startActivity(intent)
+        }
+
         holder.itemView.setOnClickListener { onChatClick(chat) }
+        holder.itemView.setOnLongClickListener { onChatLongClick?.invoke(chat); true }
     }
 
     override fun getItemCount() = chats.size
