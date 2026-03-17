@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="260dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/card_background_rounded"
+    android:padding="32dp">
+
+    <ImageView
+        android:id="@+id/successIcon"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:src="@drawable/ic_success_check"
+        android:contentDescription="Success" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Posted Successfully!"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_primary"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Your item has been shared&#10;with the community"
+        android:textSize="13sp"
+        android:textColor="@color/text_secondary"
+        android:gravity="center" />
+
+</LinearLayout>

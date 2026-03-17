@@ -156,7 +156,7 @@ class SignUpActivity : AppCompatActivity() {
             }
         )
 
-        Volley.newRequestQueue(this).add(request)
+        AppSingleton.getRequestQueue(this).add(request)
     }
     
     private fun navigateToLogin() {

@@ -1,58 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_light">
+    android:background="@color/background_light"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
-    <!-- Top Bar -->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:elevation="4dp"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
-
-        <ImageView
-            android:id="@+id/notificationIcon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="end"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_notifications"
-            android:contentDescription="Notifications"/>
-    </androidx.appcompat.widget.Toolbar>
-
-    <!-- Search Bar & Filter Section -->
+    <!-- FoodPanda-style Green Header -->
     <LinearLayout
-        android:id="@+id/searchFilterBar"
-        android:layout_width="match_parent"
+        android:id="@+id/homeHeader"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="12dp"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        android:orientation="vertical"
+        android:background="@color/phinma_dark_green"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Low Profile Search Bar -->
+        <!-- Top row: location + school name + view toggle + notifications -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_location"
+                android:tint="@color/white"
+                android:contentDescription="Location" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="PHINMA University of Pangasinan"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:maxLines="1" />
+
+            <ImageView
+                android:id="@+id/viewModeToggle"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginEnd="14dp"
+                android:src="@drawable/ic_grid_view"
+                android:tint="@color/white"
+                android:contentDescription="Toggle View Mode"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <ImageView
+                android:id="@+id/notificationIcon"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/ic_notifications"
+                android:tint="@color/white"
+                android:contentDescription="Notifications"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </LinearLayout>
+
+        <!-- White rounded search bar (like FoodPanda) -->
         <androidx.cardview.widget.CardView
             android:id="@+id/searchCardView"
-            android:layout_width="0dp"
-            android:layout_height="44dp"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            app:cardCornerRadius="22dp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:cardCornerRadius="24dp"
             app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/light_gray">
+            app:cardBackgroundColor="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,10 +93,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground">
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:layout_width="20dp"
@@ -75,49 +105,187 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="12dp"
-                    android:text="Search items..."
+                    android:layout_marginStart="10dp"
+                    android:text="Search lost or found items..."
                     android:textColor="@color/text_secondary"
                     android:textSize="14sp" />
 
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
-
-        <!-- Filter Button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/filterButton"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
-            android:layout_height="44dp"
-            android:text="All"
-            android:textColor="@color/phinma_dark_green"
-            android:textSize="13sp"
-            android:textAllCaps="false"
-            app:icon="@drawable/ic_filter"
-            app:iconTint="@color/phinma_dark_green"
-            app:iconSize="18dp"
-            app:strokeColor="@color/phinma_dark_green"
-            app:strokeWidth="1dp"
-            app:cornerRadius="22dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:minWidth="0dp"
-            android:insetTop="0dp"
-            android:insetBottom="0dp" />
 
     </LinearLayout>
 
-    <!-- Posts RecyclerView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/postsRecyclerView"
+    <!-- Filter Chips Row (white strip below green header) -->
+    <HorizontalScrollView
+        android:id="@+id/filterChipsRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:background="@color/white"
+        android:elevation="2dp"
+        app:layout_constraintTop_toBottomOf="@id/homeHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:gravity="center_vertical">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/filterButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="All"
+                android:textColor="@color/phinma_dark_green"
+                android:textSize="13sp"
+                android:textAllCaps="false"
+                app:icon="@drawable/ic_filter"
+                app:iconTint="@color/phinma_dark_green"
+                app:iconSize="16dp"
+                app:strokeColor="@color/phinma_dark_green"
+                app:strokeWidth="1dp"
+                app:cornerRadius="18dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:minWidth="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sortButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Newest"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:textAllCaps="false"
+                app:strokeColor="@color/light_gray"
+                app:strokeWidth="1dp"
+                app:cornerRadius="18dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:minWidth="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:layout_marginStart="8dp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Offline Banner -->
+    <TextView
+        android:id="@+id/offlineBanner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="You're offline — showing cached posts"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:background="#E65100"
+        android:visibility="gone"
+        android:elevation="3dp"
+        app:layout_constraintTop_toBottomOf="@id/filterChipsRow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- New Posts Available Banner -->
+    <TextView
+        android:id="@+id/newPostsBanner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="New posts available — tap to refresh"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="@color/phinma_dark_green"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="3dp"
+        app:layout_constraintTop_toBottomOf="@id/offlineBanner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Skeleton Loading View -->
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerViewContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:clipToPadding="false"
-        app:layout_constraintTop_toBottomOf="@id/searchFilterBar"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/newPostsBanner"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/skeleton_item_post" />
+            <include layout="@layout/skeleton_item_post" />
+            <include layout="@layout/skeleton_item_post" />
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <!-- SwipeRefreshLayout wrapping RecyclerView -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/newPostsBanner"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/postsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            tools:listitem="@layout/item_post" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <!-- Empty State -->
+    <LinearLayout
+        android:id="@+id/emptyStateLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/newPostsBanner"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_empty_state"
+            android:contentDescription="No posts found" />
+
+        <TextView
+            android:id="@+id/emptyPostsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="No posts yet. Be the first to post!"
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp" />
+
+    </LinearLayout>
 
     <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -128,6 +296,24 @@
         app:menu="@menu/bottom_navigation_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- GCash-style Scan FAB -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/scanFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_scan"
+        android:contentDescription="Scan"
+        app:backgroundTint="@color/phinma_dark_green"
+        app:tint="@color/white"
+        app:fabSize="normal"
+        app:elevation="8dp"
+        android:elevation="16dp"
+        android:stateListAnimator="@null"
+        android:layout_marginBottom="-28dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

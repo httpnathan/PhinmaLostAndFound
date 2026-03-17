@@ -9,17 +9,3 @@ class FAQsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_faqs)
     }
 }
-
-class AboutActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_about)
-    }
-}
-
-class ReportActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_report)
-    }
-}

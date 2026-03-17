@@ -300,12 +300,104 @@
 
                     </LinearLayout>
 
+                    <!-- Owner Action Row: Mark Resolved + Delete + Share -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/markResolvedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:text="Mark Resolved"
+                            android:textColor="@color/phinma_dark_green"
+                            android:textAllCaps="false"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            style="?attr/materialButtonOutlinedStyle"
+                            app:strokeColor="@color/phinma_dark_green"
+                            app:cornerRadius="12dp"
+                            android:paddingTop="14dp"
+                            android:paddingBottom="14dp"/>
+
+                        <Button
+                            android:id="@+id/deletePostButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:text="Delete"
+                            android:textColor="#D32F2F"
+                            android:textAllCaps="false"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            style="?attr/materialButtonOutlinedStyle"
+                            app:strokeColor="#D32F2F"
+                            app:cornerRadius="12dp"
+                            android:paddingTop="14dp"
+                            android:paddingBottom="14dp"/>
+
+                        <Button
+                            android:id="@+id/shareButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Share"
+                            android:textColor="@color/text_secondary"
+                            android:textAllCaps="false"
+                            android:textSize="14sp"
+                            style="?attr/materialButtonOutlinedStyle"
+                            app:strokeColor="@color/light_gray"
+                            app:cornerRadius="12dp"
+                            android:paddingTop="14dp"
+                            android:paddingBottom="14dp"/>
+
+                    </LinearLayout>
+
+                    <!-- Call Button (shown only when contact number is available) -->
+                    <Button
+                        android:id="@+id/callButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="#1565C0"
+                        android:text="Call Contact"
+                        android:textColor="@color/white"
+                        android:textAllCaps="false"
+                        android:textSize="16sp"
+                        android:visibility="gone"
+                        app:cornerRadius="12dp"
+                        android:paddingTop="14dp"
+                        android:paddingBottom="14dp"
+                        android:drawableStart="@drawable/ic_contact"
+                        android:drawableTint="@color/white"
+                        android:drawablePadding="8dp" />
+
+                    <!-- Claim Button (hidden for post owner) -->
+                    <Button
+                        android:id="@+id/claimButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="#E65100"
+                        android:text="I Think This Is Mine"
+                        android:textColor="@color/white"
+                        android:textAllCaps="false"
+                        android:textSize="16sp"
+                        android:visibility="gone"
+                        app:cornerRadius="12dp"
+                        android:paddingTop="14dp"
+                        android:paddingBottom="14dp" />
+
                     <!-- Contact Button -->
                     <Button
                         android:id="@+id/contactButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="8dp"
                         android:backgroundTint="@color/phinma_dark_green"
                         android:text="Contact Now"
                         android:textColor="@color/white"

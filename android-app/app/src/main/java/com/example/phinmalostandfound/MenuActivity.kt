@@ -2,130 +2,115 @@ package com.example.phinmalostandfound
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.appcompat.app.AlertDialog
+import androidx.work.WorkManager
+import com.example.phinmalostandfound.databinding.ActivityMenuBinding
 
-class MenuActivity : AppCompatActivity() {
-    
-    private lateinit var profileOption: LinearLayout
-    private lateinit var settingsOption: LinearLayout
-    private lateinit var aboutOption: LinearLayout
-    private lateinit var reportOption: LinearLayout
-    private lateinit var faqsOption: LinearLayout
-    private lateinit var bottomNavigation: BottomNavigationView
-    
+class MenuActivity : BaseActivity() {
+
+    private lateinit var binding: ActivityMenuBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu)
-        
-        initializeViews()
+        binding = ActivityMenuBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        loadUserInfo()
         setupBottomNavigation()
         setupClickListeners()
+        binding.scanFab.setOnClickListener {
+            startActivity(Intent(this, ScanActivity::class.java))
+        }
+
+        binding.bottomNavigation.elevation = 0f
+        binding.scanFab.bringToFront()
     }
-    
-    private fun initializeViews() {
-        profileOption = findViewById(R.id.profileOption)
-        settingsOption = findViewById(R.id.settingsOption)
-        aboutOption = findViewById(R.id.aboutOption)
-        reportOption = findViewById(R.id.reportOption)
-        faqsOption = findViewById(R.id.faqsOption)
-        bottomNavigation = findViewById(R.id.bottomNavigation)
+
+    override fun onResume() {
+        super.onResume()
     }
-    
+
+    private fun loadUserInfo() {
+        val prefs = getSharedPreferences("PhinmaLostAndFound", MODE_PRIVATE)
+        val firstName = prefs.getString("userFirstName", "") ?: ""
+        val lastName = prefs.getString("userLastName", "") ?: ""
+        val fullName = "$firstName $lastName".trim()
+        binding.userNameTextView.text = if (fullName.isNotEmpty()) fullName else "Welcome"
+    }
+
     private fun setupBottomNavigation() {
-        bottomNavigation.selectedItemId = R.id.nav_menu
-        bottomNavigation.setOnItemSelectedListener { item ->
+        binding.bottomNavigation.selectedItemId = R.id.nav_menu
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_home -> {
-                    navigateToHome()
-                    true
-                }
-                R.id.nav_search -> {
-                    navigateToSearch()
-                    true
-                }
-                R.id.nav_post -> {
-                    navigateToPostItem()
-                    true
-                }
-                R.id.nav_chat -> {
-                    navigateToChatSection()
-                    true
-                }
-                R.id.nav_menu -> {
-                    // Already on menu
-                    true
-                }
+                R.id.nav_home -> { navigateToHome(); true }
+                R.id.nav_post -> { navigateToPostItem(); true }
+                R.id.nav_chat -> { navigateToChatSection(); true }
+                R.id.nav_menu -> true
                 else -> false
             }
         }
     }
-    
+
     private fun setupClickListeners() {
-        profileOption.setOnClickListener {
-            navigateToProfile()
+        // Header actions
+        binding.settingsGearIcon.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
         }
-        
-        settingsOption.setOnClickListener {
-            navigateToSettings()
+
+        // Quick action cards
+        binding.myChatsCard.setOnClickListener { navigateToChatSection() }
+        binding.settingsQuickCard.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
         }
-        
-        aboutOption.setOnClickListener {
-            navigateToAbout()
+
+        // Account section items
+        binding.profileOption.setOnClickListener { navigateToProfile() }
+        binding.myPostsOption.setOnClickListener { navigateToProfile() }
+        binding.notificationsOption.setOnClickListener {
+            NotificationHelper.markAllRead(this)
+            startActivity(Intent(this, NotificationsActivity::class.java))
         }
-        
-        reportOption.setOnClickListener {
-            navigateToReport()
+        binding.settingsOption.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
         }
-        
-        faqsOption.setOnClickListener {
-            navigateToFAQs()
+
+        // Support items
+        binding.aboutOption.setOnClickListener {
+            startActivity(Intent(this, AboutActivity::class.java))
         }
+        binding.reportOption.setOnClickListener {
+            startActivity(Intent(this, ReportActivity::class.java))
+        }
+        binding.faqsOption.setOnClickListener {
+            startActivity(Intent(this, FAQsActivity::class.java))
+        }
+        binding.logoutButton.setOnClickListener { performLogout() }
     }
-    
+
     private fun navigateToProfile() {
+        val prefs = getSharedPreferences("PhinmaLostAndFound", MODE_PRIVATE)
         val intent = Intent(this, ProfileActivity::class.java)
+        intent.putExtra("USER_ID", prefs.getInt("userId", -1))
         startActivity(intent)
     }
-    
-    private fun navigateToSettings() {
-        val intent = Intent(this, SettingsActivity::class.java)
-        startActivity(intent)
+
+    private fun performLogout() {
+        AlertDialog.Builder(this)
+            .setTitle("Log Out")
+            .setMessage("Are you sure you want to log out?")
+            .setPositiveButton("Log Out") { _, _ ->
+                WorkManager.getInstance(applicationContext).cancelUniqueWork("NotificationPolling")
+                getSharedPreferences("PhinmaLostAndFound", MODE_PRIVATE).edit().clear().apply()
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
     }
-    
-    private fun navigateToAbout() {
-        val intent = Intent(this, AboutActivity::class.java)
-        startActivity(intent)
-    }
-    
-    private fun navigateToReport() {
-        val intent = Intent(this, ReportActivity::class.java)
-        startActivity(intent)
-    }
-    
-    private fun navigateToFAQs() {
-        val intent = Intent(this, FAQsActivity::class.java)
-        startActivity(intent)
-    }
-    
-    private fun navigateToHome() {
-        val intent = Intent(this, HomeActivity::class.java)
-        startActivity(intent)
-    }
-    
-    private fun navigateToSearch() {
-        val intent = Intent(this, SearchActivity::class.java)
-        startActivity(intent)
-    }
-    
-    private fun navigateToPostItem() {
-        val intent = Intent(this, PostItemActivity::class.java)
-        startActivity(intent)
-    }
-    
-    private fun navigateToChatSection() {
-        val intent = Intent(this, ChatSectionActivity::class.java)
-        startActivity(intent)
-    }
+
+    private fun navigateToHome() { startActivity(Intent(this, HomeActivity::class.java)) }
+    private fun navigateToPostItem() { startActivity(Intent(this, PostItemActivity::class.java)) }
+    private fun navigateToChatSection() { startActivity(Intent(this, ChatSectionActivity::class.java)) }
 }
